@@ -59,21 +59,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
-    height: 80vh;
+    height: 150vh;
 }
 
-.principal .container {
+.principal .banner {
     display: flex;
     justify-content: center;
     flex-direction: row;
     width: 80%;
-    height: 100%;
+    height: 80%;
     font-size: 25px;
     background-color: #F2F2F2;
 }
 
-.principal .container .esquerda {
+.principal .banner .esquerda {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +84,7 @@ body {
     /* background-color: red; */
 }
 
-.principal .container .direita {
+.principal .banner .direita {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,4 +94,13 @@ body {
     background-image: url(https://wallpapercrafter.com/desktop/445559-Video-Game-Pokmon-Phone-Wallpaper.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.principal .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100vh;
+    background-color: blueviolet;
 }

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>x1 Pokémon</title>
+
+    <link rel="stylesheet" href="index.css">
+
 </head>
 <style>
     .body {
@@ -81,8 +85,15 @@
         height: 20%;
         background-color: lightgray;
     }
-    .barraHp {
-        width: 80%;
+    .hpInimigo {
+        margin-left: 10px;
+        width: 160px;
+        height: 75%;
+        background-color: red;
+    }
+    .hpPokemon {
+        margin-left: 10px;
+        width: 160px;
         height: 75%;
         background-color: red;
     }
@@ -91,6 +102,10 @@
         height: 100px;
         border: 2px black solid;
         background-color: bisque;
+    }
+    button {
+        width: 100px;
+        height: 45px;
     }
 </style>
 <body>
@@ -101,7 +116,7 @@
                     <div class="caixa">
                         Rattata Level: 5
                         <div class="hp">
-                            HP:<div class="barraHp" id="hpInimigo"></div>
+                            HP:<div class="hpInimigo" id="hpInimigo"></div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +132,7 @@
                     <div class="caixa">
                         Bulbasaur Level: 5
                         <div class="hp">
-                            HP:<div class="barraHp" id="hpPokemon"></div>
+                            HP:<div class="hpPokemon" id="hpPokemon"></div>
                         </div>
                     </div>
                 </div>
@@ -132,9 +147,19 @@
 
 <script>
 
-    var vida = document.getElementById('hpPokemon');
-
+    var vidaAtual = 160;
+    var listaAtaques = [1,2,3];
+    
     function tackle() {
-        vida.style.witdh -= 20
+        
+        var dano = 20;
+        vidaAtual -= dano;
+        hpInimigo.style.width = `${vidaAtual}px`;
+
+        ataqueInimigo()
+    }
+
+    function ataque() {
+        Math.random();
     }
 </script>
