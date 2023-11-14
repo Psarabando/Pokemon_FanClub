@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: #2648ad; */
+    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 12vh;
+    border-bottom: 3px #F2F2F2 solid;
+    background-color: black;
+}
+
+.header .container {
+    width: 85%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+.header a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* .header a :hover{
+    border-top: 10px black;
+} */
+
+.logo {
+    display: flex;
+    width: 15%;
+    height: 85%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar {
+    width: 35%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.principal .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    font-size: 25px;
+    background-color: #F2F2F2;
+}
+
+.principal .container .esquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 72%;
+    height: 100%;
+    /* background-color: red; */
+}
+
+.principal .container .direita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 28%;
+    height: 100%;
+    background-image: url(https://wallpapercrafter.com/desktop/445559-Video-Game-Pokmon-Phone-Wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
