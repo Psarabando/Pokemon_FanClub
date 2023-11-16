@@ -1,11 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    /* background-color: #2648ad; */
-    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
-    /* background-repeat: no-repeat; */
     background-size: cover;
+    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
 }
+
+/* Header */
 
 .header {
     display: flex;
@@ -31,6 +31,11 @@ body {
     color: whitesmoke;
 }
 
+.selecionado {
+    font-weight: bolder;
+    color: #FFDF00;
+}
+
 /* .header a :hover{
     border-top: 10px black;
 } */
@@ -44,16 +49,28 @@ body {
 }
 
 .navbar {
-    width: 35%;
+    width: 25%;
     height: 50%;
     display: flex;
     align-items: center;
     color: whitesmoke;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style: none;
-    font-size: 30px;
-    font-weight: bolder;
+    font-size: 25px;
 }
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    width: 100%;
+    height: 8vh;
+    border-top: 3px #F2F2F2 solid;
+    background-color: #FFDF00;
+}
+
+/* Tela Inicial */
 
 .principal {
     display: flex;
@@ -81,7 +98,6 @@ body {
     flex-direction: column;
     width: 72%;
     height: 100%;
-    /* background-color: red; */
 }
 
 .principal .banner .direita {
@@ -96,11 +112,144 @@ body {
     background-size: cover;
 }
 
-.principal .container {
+.principal .banner2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     width: 80%;
     height: 100vh;
     background-color: blueviolet;
 }
+
+.principal .banner2 .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 100%;
+}
+
+/* Tela Sobre */
+
+/* Tela de Login */
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+}
+
+.cardLogin {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 20%;
+    height: 60%;
+    background-color: #F0F8FF;
+}
+
+.titulo {
+    font-size: 50px;
+}
+
+.cardLogin .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+    /* border: 2px solid red; */
+}
+
+.campo .span {
+    color: #214CCE;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1px;
+}
+
+.entrar {
+    width: 30%;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #F0F8FF;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    background-color: #214CCE;
+}
+
+/* Tela de Cadastro */
+
+.cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+}
+
+.cardCadastro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 25%;
+    height: 80%;
+    background-color: #F0F8FF;
+}
+
+.titulo {
+    font-size: 50px;
+}
+
+.cardCadastro .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 15%;
+}
+
+.campo .span {
+    color: #214CCE;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1px;
+}
+
+.input {
+    text-align: center;
+    border: 2px #000000 solid;
+    border-radius: 10px;
+    height: 25px;
+    width: 60%;
+}
+
+.cadastrar {
+    width: 30%;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #F0F8FF;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    background-color: #214CCE;
+}
+
+/* .cadastrar :hover{
+    box-shadow: #000000;
+} */

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pokémon FanClub | Página Inicial</title>
+    <title>Pokémon FanClub | Login</title>
 
     <!-- <link rel="images" href="Pokemon_FanClub/Algoritmos/images/logo.png"> -->
     <link rel="stylesheet" href="index.css">
@@ -22,7 +22,7 @@
             </div>
             <ul class="navbar">
                 <li>
-                    <a href="index.html"><span class="selecionado">Início</span></a>    
+                    <a href="index.html">Início</a>
                 </li>
                 <li>
                     <a href="sobre.html">Sobre</a>
@@ -31,7 +31,7 @@
                     |
                 </li>
                 <li>
-                    <a href="login.html">Login</a>
+                    <a href="login.html"><span class="selecionado">Login</span></a>
                 </li>
                 <li>
                     <a href="cadastro.html">Cadastro</a>
@@ -39,23 +39,22 @@
             </ul>
         </div>
     </div>
-    
-    <div class="principal">
-        <div class="banner">
-            <div class="esquerda">
-                <h1>Sua jornada está prestes a começar!</h1>
-                <h3>Junte-se a comunidade e torne-se o melhor treinador Pokémon</h3>
+
+    <div class="login">
+        <div class="cardLogin">
+            <span class="titulo">Login <img src="" style="height: 50px;"></span>
+            <div class="campo">
+                <span class="span">E-mail:</span>
+                <input type="text" class="input" id="email" placeholder="Login">
             </div>
-            <div class="direita"></div>
+            <div class="campo">
+                <span class="span">Senha:</span>
+                <input type="password" class="input" id="senha" placeholder="******">
+            </div>
+            <div class="campo">
+                <button class="entrar" onclick="entrar()">Entrar</button>
+            </div>
         </div>
-        <div class="banner2">
-            <div class="box">A</div>
-            <div class="box">B</div>
-            <div class="box">C</div>
-        </div>
-        <audio autoplay loop controls> 
-            <source src="./midias/pokmon.mp3" type="audio/mp3" >
-        </audio>
     </div>
 
     <div class="footer">

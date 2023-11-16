@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon FanClub | Cadastro</title>
+
+    <!-- <link rel="images" href="Pokemon_FanClub/Algoritmos/images/logo.png"> -->
+    <link rel="stylesheet" href="index.css">
+    <script src=""></script>
+    
+
+</head>
+<body>
+    
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://www.logolynx.com/images/logolynx/4b/4be5a7f25d4d2347467d571c682209a2.png" style="width: 18vh;">
+                <img src="https://i.pinimg.com/originals/e9/38/d1/e938d18fc07a3ffd16b4864ef2f1308f.gif" style="width: 7vh; padding-right: 45%">
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Início</a>
+                </li>
+                <li>
+                    <a href="sobre.html">Sobre</a>
+                </li>
+                <li>
+                    |
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="cadastro.html"><span class="selecionado">Cadastro</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cadastro">
+        <div class="cardCadastro">
+            <span class="titulo">Cadastre-se <img src="" style="height: 50px;"></span>
+            <div class="campo">
+                <span class="span">Nome:</span>
+                <input type="text" class="input" id="nome" placeholder="Digite seu nome">
+            </div>
+            <div class="campo">
+                <span class="span">Idade:</span>
+                <input type="number" class="input" id="idade" placeholder="Sua idade">
+            </div>
+            <div class="campo">
+                <span class="span">E-mail:</span>
+                <input type="text" class="input" id="email" placeholder="nome@provedor.com">
+            </div>
+            <div class="campo">
+                <span class="span">Senha:</span>
+                <input type="password" class="input" id="senha" placeholder="******">
+            </div>
+            <div class="campo">
+                <span class="span">Confirmação da Senha:</span>
+                <input type="password" class="input" id="confSenha" placeholder="******">
+            </div>
+            <div class="campo">
+                <button class="cadastrar" onclick="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+            Todos os direitos a The Pokemon Company | Feito por um aluno SPTech © 2023
+    </div>
+
+</body>
+</html>
