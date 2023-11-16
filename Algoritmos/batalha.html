@@ -91,21 +91,42 @@
         height: 75%;
         background-color: red;
     }
-    .hpPokemon {
-        margin-left: 10px;
-        width: 160px;
+    .hpAliado {
+        width: 100px;
         height: 75%;
+        margin-left: 10px;
         background-color: red;
     }
     .hub {
         width: 60%;
         height: 100px;
-        border: 2px black solid;
+        display: flex;
+        flex-direction: row;
+        border: 6px black double;
         background-color: bisque;
+        justify-content: space-between;
+    }
+    .ataques {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        border: 1px solid black;
+        flex-direction: column;
+    }
+    .ataques .divisoria {
+        display: flex;
+        flex-direction: row;
+        height: 50%;
+        width: 100%;
     }
     button {
-        width: 100px;
-        height: 45px;
+        width: 50%;
+        height: 100%;
+    }
+    .historico {
+        width: 60%;
+        height: 100%;
+        background-color: rebeccapurple;
     }
 </style>
 <body>
@@ -132,14 +153,25 @@
                     <div class="caixa">
                         Bulbasaur Level: 5
                         <div class="hp">
-                            HP:<div class="hpPokemon" id="hpPokemon"></div>
+                            HP:<div class="hpAliado" id="hpAliado"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hub">
-            <button onclick="tackle()">Tackle</button>
+            <div class="ataques">
+                <div class="divisoria">
+                    <button onclick="tackle()">Tackle</button>
+                    <button onclick="growl()">Growl</button>
+                </div>
+                <div class="divisoria">
+                    <button onclick="absorb()">Absorb</button>
+                </div>
+            </div>
+            <div class="historico">
+                
+            </div>
         </div>
     </div>
 </body>
@@ -147,19 +179,41 @@
 
 <script>
 
-    var vidaAtual = 160;
-    var listaAtaques = [1,2,3];
-    
-    function tackle() {
-        
-        var dano = 20;
-        vidaAtual -= dano;
-        hpInimigo.style.width = `${vidaAtual}px`;
+    var vidaAliado = 100;
+    var vidaInimigo = 160;
 
-        ataqueInimigo()
+    var listaAtaques = [1,2,3];
+    var growl = false;
+
+    function tackle() {
+        var dano = 20;
+        vidaInimigo -= dano;
+        hpInimigo.style.width = `${vidaInimigo}px`;
+
+        ataqueInimigo();
     }
 
-    function ataque() {
+    function growl() {
+        growl = true;
+
+        ataqueInimigo();
+    }
+
+    function absorb() {
+        var dano = 20;
+        vidaInimigo -= dano;
+        hpInimigo.style.width = `${vidaInimigo}px`;
+        
+        if (hpAliado.style.width < `160px`){
+            var cura = 10;
+            vidaAliado += cura;
+            hpAliado.style.width = `${vidaAliado}px`
+        }
+
+        ataqueInimigo();
+    }
+
+    function ataqueInimigo() {
         Math.random();
     }
 </script>
