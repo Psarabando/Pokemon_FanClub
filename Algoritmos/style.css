@@ -8,42 +8,38 @@ body {
 /* Header */
 
 .header {
+    width: 100%;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
-    height: 12vh;
-    border-bottom: 3px #F2F2F2 solid;
     background-color: black;
+    border-bottom: 3px #F2F2F2 solid;
 }
 
 .header .container {
     width: 85%;
     height: 70%;
+    margin: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
 }
 .header a {
-    text-decoration: none;
     color: whitesmoke;
+    text-decoration: none;
 }
 
 .selecionado {
-    font-weight: bolder;
     color: #FFDF00;
+    font-weight: bolder;
 }
 
-/* .header a :hover{
-    border-top: 10px black;
-} */
-
 .logo {
-    display: flex;
     width: 15%;
     height: 85%;
+    display: flex;
     flex-direction: row;
     align-items: center;
 }
@@ -52,83 +48,120 @@ body {
     width: 25%;
     height: 50%;
     display: flex;
+    font-size: 25px;
+    list-style: none;
     align-items: center;
     color: whitesmoke;
     justify-content: space-between;
-    list-style: none;
-    font-size: 25px;
 }
 
 .footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
     width: 100%;
     height: 8vh;
-    border-top: 3px #F2F2F2 solid;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
     background-color: #FFDF00;
+    border-top: 3px #F2F2F2 solid;
 }
 
 /* Tela Inicial */
 
 .principal {
+    width: 100%;
+    height: 245vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    width: 100%;
-    height: 150vh;
+    justify-content: space-evenly;
 }
 
 .principal .banner {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
     width: 80%;
-    height: 80%;
+    height: 750px;
+    display: flex;
     font-size: 25px;
+    flex-direction: row;
     background-color: #F2F2F2;
+    justify-content: space-around;
 }
 
 .principal .banner .esquerda {
+    width: 70%;
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 72%;
-    height: 100%;
+    justify-content: center;
 }
 
 .principal .banner .direita {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 28%;
+    width: 30%;
     height: 100%;
-    background-image: url(https://wallpapercrafter.com/desktop/445559-Video-Game-Pokmon-Phone-Wallpaper.jpg);
-    background-repeat: no-repeat;
+    display: flex;
     background-size: cover;
+    background-position: 1000px;
+    background-image: url(https://c.wallhere.com/photos/1a/29/1600x1000_px_Charmander_ishmam_pokemon-1298693.jpg!d);
 }
 
 .principal .banner2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
     width: 80%;
-    height: 100vh;
-    background-color: blueviolet;
+    height: 750px;
+    display: flex;
+    font-size: 25px;
+    flex-direction: row;
+    background-color: #F2F2F2;
+    justify-content: space-around;
 }
 
-.principal .banner2 .box {
+.principal .banner2 .esquerda {
+    width: 30%;
+    height: 100%;
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: center;
+    background-position: 1000px;
+    background-image: url(https://c.wallhere.com/photos/c4/23/1600x1000_px_pokemon_Squirtle-1346439.jpg!d);
+}
+
+.principal .banner2 .direita {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 33%;
+}
+
+.principal .banner3 {
+    width: 80%;
+    height: 750px;
+    display: flex;
+    font-size: 25px;
+    flex-direction: row;
+    background-color: #F2F2F2;
+    justify-content: space-around;
+}
+
+.principal .banner3 .esquerda {
+    width: 70%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.principal .banner3 .direita {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    background-size: cover;
+    background-position: 850px;
+    background-image: url(https://c.wallhere.com/photos/35/08/1600x1000_px_Bulbasaur_pokemon-1284041.jpg!d);
 }
 
 /* Tela Sobre */
@@ -155,16 +188,23 @@ body {
 }
 
 .cardSobre .box {
-    width: 50%;
+    width: 35%;
     height: 100%;
     display: flex;
     text-align: center;
     flex-direction: row;
-    justify-content: center;
     border: 1px #214CCE solid;
+    justify-content: space-around;
 }
 
-
+.cardSobre .boxCentral {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border: 1px #214CCE solid;
+}
 
 /* Tela de Login */
 
@@ -193,18 +233,17 @@ body {
 }
 
 .cardLogin .campo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
     height: 30%;
-    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .campo .span {
-    color: #214CCE;
     font-size: 20px;
+    color: #214CCE;
     font-weight: bold;
     padding-bottom: 1px;
 }
@@ -225,12 +264,12 @@ body {
 /* Tela de Cadastro */
 
 .cadastro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     width: 100%;
     height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cardCadastro {
@@ -249,27 +288,27 @@ body {
 }
 
 .cardCadastro .campo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 80%;
     height: 15%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .campo .span {
-    color: #214CCE;
     font-size: 20px;
+    color: #214CCE;
     font-weight: bold;
     padding-bottom: 1px;
 }
 
 .input {
-    text-align: center;
-    border: 2px #000000 solid;
-    border-radius: 10px;
-    height: 25px;
     width: 60%;
+    height: 25px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px #000000 solid;
 }
 
 .cadastrar {
@@ -284,7 +323,3 @@ body {
     font-weight: bolder;
     background-color: #214CCE;
 }
-
-/* .cadastrar :hover{
-    box-shadow: #000000;
-} */
