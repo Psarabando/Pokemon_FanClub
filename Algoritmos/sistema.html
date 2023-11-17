@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon FanClub | Sistema</title>
+    <link rel="stylesheet" href="sistema.css">
+    <script src=""></script>
+
+
+</head>
+<body>
+
+    <div class="introducao">
+        
+    </div>
+
+    <div class="container">
+        <div class="luta">
+            <div class="ladoEsquerdo">
+                <div class="vidaInimigo">
+                    <div class="caixa">
+                        Rattata Level: 5
+                        <div class="hp">
+                            HP:<div class="hpInimigo" id="hpInimigo"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemon">
+                    <img src="https://art.pixilart.com/thumb/7e8988e96886ddd.png" style="width: 300px;">
+                </div>
+            </div>
+            <div class="ladoDireito">
+                <div class="inimigo">
+                    <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style= "width: 200px;">
+                </div>
+                <div class="vidaPokemon">
+                    <div class="caixa">
+                        Bulbasaur Level: 5
+                        <div class="hp">
+                            HP:<div class="hpAliado" id="hpAliado"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hub">
+            <div class="ataques">
+                <div class="divisoria">
+                    <button onclick="tackle()">Tackle</button>
+                    <button onclick="growl()">Growl</button>
+                </div>
+                <div class="divisoria">
+                    <button onclick="absorb()">Absorb</button>
+                </div>
+            </div>
+            <div class="historico">
+                
+            </div>
+        </div>
+        <audio autoplay loop controls> 
+            <source src="./midias/pokmon.mp3" type="audio/mp3" >
+        </audio>
+    </div>
+</body>
+</html>
+
+<script>
+
+    var vidaAliado = 100;
+    var vidaInimigo = 160;
+
+    var listaAtaques = [1,2,3];
+    var growl = false;
+
+    function tackle() {
+        var dano = 20;
+        vidaInimigo -= dano;
+        hpInimigo.style.width = `${vidaInimigo}px`;
+
+        ataqueInimigo();
+    }
+
+    function growl() {
+        growl = true;
+
+        ataqueInimigo();
+    }
+
+    function absorb() {
+        var dano = 20;
+        vidaInimigo -= dano;
+        hpInimigo.style.width = `${vidaInimigo}px`;
+        
+        if (hpAliado.style.width < `160px`){
+            var cura = 10;
+            vidaAliado += cura;
+            hpAliado.style.width = `${vidaAliado}px`
+        }
+
+        ataqueInimigo();
+    }
+
+    function ataqueInimigo() {
+        Math.random();
+    }
+</script>
