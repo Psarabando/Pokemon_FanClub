@@ -13,10 +13,60 @@
 <body>
 
     <div class="introducao">
-        
+        <div class="header">
+            <a href="index.html">
+                <div class="voltar">
+                    <img src="https://cdn-icons-png.flaticon.com/128/271/271218.png" style="height: 30px;">
+                    Voltar
+                </div>
+            </a>
+        </div>
+        <div class="cardIntroducao">
+            <div class="acima">
+                <div class="boxHorizontal">
+                    <h1>Toda jornada possui um começo</h1>
+                    <h2>Escolha um Pokémon para ser seu companheiro</h2>
+                </div>
+            </div>
+            <div class="abaixo">
+
+                <div class="boxVertical">
+                    <img src="https://archives.bulbagarden.net/media/upload/f/fb/0001Bulbasaur.png" style="width: 200px;height: 200px;">
+                    <span class="tituloPokemon">Bulbasaur Nº 001</span>
+                    <span class="descricao">Pokémon Semente</span>
+                    <div class="tipagem">
+                        <div class="boxPlanta">Planta</div>
+                        <div class="boxVeneno">Veneno</div>
+                    </div>
+
+                    <button class="button_bulbasaur" onclick="escolherBulbasaur()">Eu escolho você!</button>
+                </div>
+
+                <div class="boxVertical">
+                    <img src="https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/250px-0004Charmander.png" style="width: 200px; height: 200px;">
+                    <span class="tituloPokemon">Charmander Nº 004</span>
+                    <span class="descricao">Pokémon Lagarto</span>
+                    <div class="tipagem">
+                        <div class="boxFogo">Fogo</div>
+                    </div>
+                    <button class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button>
+                </div>
+
+                <div class="boxVertical">
+                    <img src="https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/250px-0007Squirtle.png" style="width: 200px; height: 200px;">
+                    <span class="tituloPokemon">Squirtle Nº 007</span>
+                    <span class="descricao">Pokémon Tartaruga Pequena</span>
+                    <div class="tipagem">
+                        <div class="boxAgua">Água</div>
+                    </div>
+                    <button class="button_squirtle" onclick="escolherSquirtle()">Eu escolho você!</button>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="container">
         <div class="luta">
             <div class="ladoEsquerdo">
                 <div class="vidaInimigo">
@@ -63,10 +113,15 @@
             <source src="./midias/pokmon.mp3" type="audio/mp3" >
         </audio>
     </div>
+
 </body>
 </html>
 
 <script>
+
+    function escolherBulbasaur() {
+        container.style.display='block';
+    }
 
     var vidaAliado = 100;
     var vidaInimigo = 160;
