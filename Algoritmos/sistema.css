@@ -11,7 +11,6 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    /* background-color: red; */
 }
 .header {
     width: 90%;
@@ -239,14 +238,14 @@ body {
     background-color: lightgray;
 }
 .hpInimigo {
-    margin-left: 10px;
-    width: 160px;
     height: 75%;
+    width: 200px;
+    margin-left: 10px;
     background-color: red;
 }
 .hpAliado {
-    width: 100px;
     height: 75%;
+    width: 200px;
     margin-left: 10px;
     background-color: red;
 }
@@ -263,8 +262,8 @@ body {
     width: 40%;
     height: 100%;
     display: flex;
-    border: 1px solid black;
     flex-direction: column;
+    border: 1px solid black;
 }
 .ataques .divisoria {
     display: flex;
@@ -280,5 +279,4 @@ button {
     width: 60%;
     height: 100%;
     overflow-y: scroll;
-    background-color: rebeccapurple;
 }

@@ -105,9 +105,7 @@
                     <button onclick="absorb()">Absorb</button>
                 </div>
             </div>
-            <div class="historico">
-                
-            </div>
+            <div class="historico" id="div_historico"></div>
         </div>
         <audio autoplay loop controls> 
             <source src="./midias/pokmon.mp3" type="audio/mp3" >
@@ -123,24 +121,42 @@
         container.style.display='block';
     }
 
-    var vidaAliado = 100;
-    var vidaInimigo = 160;
+    function escolherCharmander() {
+
+    }
+
+    function escolherSquirtle() {
+        
+    }
+
+    var vidaAliado = 200;
+    var vidaInimigo = 200;
 
     var listaAtaques = [1,2,3];
-    var growl = false;
+    var efeitoGrowl = false;
 
     function tackle() {
         var dano = 20;
         vidaInimigo -= dano;
         hpInimigo.style.width = `${vidaInimigo}px`;
 
+        var mensagem = 'Bulbasaur usou Tackle!<br>';
+        div_historico.innerHTML += mensagem;
         ataqueInimigo();
     }
 
     function growl() {
-        growl = true;
 
-        ataqueInimigo();
+        if (efeitoGrowl == false) {
+            var mensagem = 'Bulbasaur usou Growl!<br> O ataque de Rattata foi reduzido!<br>';
+            div_historico.innerHTML += mensagem;
+            efeitoGrowl = true;
+            ataqueInimigo();
+        } else {
+            var mensagem = 'Bulbasaur já utilizou Growl, ele não pode utilizar novamente<br>';
+            div_historico.innerHTML += mensagem;
+        }
+
     }
 
     function absorb() {
@@ -148,16 +164,20 @@
         vidaInimigo -= dano;
         hpInimigo.style.width = `${vidaInimigo}px`;
         
-        if (hpAliado.style.width < `160px`){
+        if (hpAliado.style.width < `200px`){
             var cura = 10;
             vidaAliado += cura;
             hpAliado.style.width = `${vidaAliado}px`
         }
 
+        var mensagem = 'Bulbasaur usou Absorb!<br>';
+        div_historico.innerHTML += mensagem;
         ataqueInimigo();
     }
 
     function ataqueInimigo() {
         Math.random();
+        var mensagem = 'Rattata atacou usando sla!<br>';
+            div_historico.innerHTML += mensagem;
     }
 </script>
