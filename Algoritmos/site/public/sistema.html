@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pokémon FanClub | Sistema</title>
-    <link rel="stylesheet" href="sistema.css">
+    <link rel="stylesheet" href="css/sistema.css">
+    <link rel="icon" href="midias/pokeball.png">
     <script src=""></script>
 
 
@@ -103,12 +104,12 @@
 
         <div class="hub">
             <div class="ataques">
-                <div class="divisoria">
-                    <button onclick="tackle()">Tackle</button>
-                    <button onclick="growl()">Growl</button>
+                <div class="box">
+                    <button onclick="tackle_b()">Tackle</button>
+                    <button onclick="growl_b()">Growl</button>
                 </div>
-                <div class="divisoria">
-                    <button onclick="absorb()">Absorb</button>
+                <div class="box">
+                    <button onclick="absorb_b()">Absorb</button>
                 </div>
             </div>
             <div class="historico" id="div_historico"></div>
@@ -134,29 +135,43 @@
         
     }
 
+    
+    // Ataques do Bulbasaur
+
     var vidaAliado = 200;
     var vidaInimigo = 200;
-
-    var listaAtaques = [1,2,3];
     var efeitoGrowl = false;
 
-    function tackle() {
-        var dano = 20;
-        vidaInimigo -= dano;
-        hpInimigo.style.width = `${vidaInimigo}px`;
+    function tackle_b() {
 
         var mensagem = 'Bulbasaur usou Tackle!<br>';
+        
+        var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
+        
+        if (chanceCritico == 8) {
+            var dano = 30;
+            vidaInimigo -= dano;
+            mensagem += `Foi um golpe com acerto crítico!<br>`
+            hpInimigo.style.width = `${vidaInimigo}px`;
+        } else {
+            var dano = 20;
+            vidaInimigo -= dano;
+            hpInimigo.style.width = `${vidaInimigo}px`;
+        }
+        
         div_historico.innerHTML += mensagem;
-        ataqueInimigo();
+
+        turnoInimigo();
+
     }
 
-    function growl() {
+    function growl_b() {
 
         if (efeitoGrowl == false) {
             var mensagem = 'Bulbasaur usou Growl!<br> O ataque de Rattata foi reduzido!<br>';
             div_historico.innerHTML += mensagem;
             efeitoGrowl = true;
-            ataqueInimigo();
+            turnoInimigo();
         } else {
             var mensagem = 'Bulbasaur já utilizou Growl, ele não pode utilizar novamente<br>';
             div_historico.innerHTML += mensagem;
@@ -164,8 +179,8 @@
 
     }
 
-    function absorb() {
-        var dano = 20;
+    function absorb_b() {
+        var dano = 15;
         vidaInimigo -= dano;
         hpInimigo.style.width = `${vidaInimigo}px`;
         
@@ -177,12 +192,48 @@
 
         var mensagem = 'Bulbasaur usou Absorb!<br>';
         div_historico.innerHTML += mensagem;
-        ataqueInimigo();
+        turnoInimigo();
     }
 
-    function ataqueInimigo() {
-        Math.random();
-        var mensagem = 'Rattata atacou usando sla!<br>';
+    // Ataques do Charmander
+
+
+    // Ataques do Squirtle
+
+
+    // Ataques do adversário
+
+    var efeitoTailWhipInimigo = false;
+
+    function turnoInimigo() {
+
+        var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
+        var mensagem = '';
+        
+        if (ataqueInimigo == 1) {
+
+            var dano = 15;
+            vidaAliado -= dano;
+            hpAliado.style.width = `${vidaAliado}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+
+        } else if (ataqueInimigo == 2) {
+
+            if (efeitoTailWhipInimigo == false) {
+                efeitoTailWhipInimigo = true;
+                mensagem = `Rattata atacou usando Tail Whip!<br>
+                A defesa de seu pokémon foi reduzida!<br><br>`;
+            } else {
+                mensagem = `Rattata utilizou novamente Tail Whip!<br>
+                O ataque não surtiu efeito em seu pokémon!<br><br>`;
+            }
+
+        } else if (ataqueInimigo == 3) {
+
+            mensagem = `Rattata atacou usando Fury Swipes!<br>
+            Rattata atingiou ${a} vezes seu pokémon!<br><br>`;
+
+        }
             div_historico.innerHTML += mensagem;
     }
 </script>
