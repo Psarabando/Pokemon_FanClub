@@ -64,10 +64,15 @@
 
             </div>
         </div>
+        <audio autoplay loop controls> 
+            <source src="./midias/pokmon.mp3" type="audio/mp3" >
+        </audio>
     </div>
 
-    <div class="container" id="container">
-        <div class="luta">
+<div class="container" id="container">
+
+    <div class="telaBatalha">
+        <div class="telaLuta">
             <div class="ladoEsquerdo">
                 <div class="vidaInimigo">
                     <div class="caixa">
@@ -95,6 +100,7 @@
                 </div>
             </div>
         </div>
+
         <div class="hub">
             <div class="ataques">
                 <div class="divisoria">
@@ -107,10 +113,9 @@
             </div>
             <div class="historico" id="div_historico"></div>
         </div>
-        <audio autoplay loop controls> 
-            <source src="./midias/pokmon.mp3" type="audio/mp3" >
-        </audio>
     </div>
+
+</div>
 
 </body>
 </html>
@@ -118,7 +123,7 @@
 <script>
 
     function escolherBulbasaur() {
-        container.style.display='block';
+        container.style.display='flex';
     }
 
     function escolherCharmander() {

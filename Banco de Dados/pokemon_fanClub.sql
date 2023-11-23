@@ -6,20 +6,16 @@ USE Pokemon;
 -- Criação das tabelas
 
 CREATE TABLE Usuario (
-idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-nomeUsuario VARCHAR(45) NOT NULL,
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45) NOT NULL,
 idade INT NOT NULL,
+email VARCHAR(45) UNIQUE,
 senha VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE Email (
-idEmail INT AUTO_INCREMENT,
-email VARCHAR(45) UNIQUE NOT NULL,
-fkUsuario INT,
-CONSTRAINT fkUsuarioEmail FOREIGN KEY (fkUsuario)
-	REFERENCES Usuario(idUsuario),
-PRIMARY KEY(idEmail, fkUsuario)
-);
+DROP TABLE Usuario;
+
+SELECT * FROM Usuario;
 
 CREATE TABLE Pontos (
 idPontos INT AUTO_INCREMENT,
