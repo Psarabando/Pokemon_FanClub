@@ -13,6 +13,8 @@
 </head>
 <body>
 
+    <!-- Container aonde será escolhido o pokémon do usuário -->
+
     <div class="introducao">
         <div class="header">
             <a href="index.html">
@@ -40,7 +42,7 @@
                         <div class="boxVeneno">Veneno</div>
                     </div>
 
-                    <button class="button_bulbasaur" onclick="escolherBulbasaur()">Eu escolho você!</button>
+                    <button id="button_bulbasaur" class="button_bulbasaur" onclick="escolherBulbasaur()">Eu escolho você!</button>
                 </div>
 
                 <div class="boxVertical">
@@ -50,7 +52,7 @@
                     <div class="tipagem">
                         <div class="boxFogo">Fogo</div>
                     </div>
-                    <button class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button>
+                    <button id="button_charmander" class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button>
                 </div>
 
                 <div class="boxVertical">
@@ -60,17 +62,15 @@
                     <div class="tipagem">
                         <div class="boxAgua">Água</div>
                     </div>
-                    <button class="button_squirtle" onclick="escolherSquirtle()">Eu escolho você!</button>
+                    <button id="button_squirtle" class="button_squirtle" onclick="escolherSquirtle()">Eu escolho você!</button>
                 </div>
-
             </div>
         </div>
-        <audio autoplay loop controls> 
-            <source src="./midias/pokmon.mp3" type="audio/mp3" >
-        </audio>
     </div>
 
-<div class="container" id="container">
+<!-- Container de batalha caso o escolhido seja o Bulbasaur -->
+
+<div class="containerB" id="containerB">
 
     <div class="telaBatalha">
         <div class="telaLuta">
@@ -79,12 +79,12 @@
                     <div class="caixa">
                         Rattata Level: 5
                         <div class="hp">
-                            HP:<div class="hpInimigo" id="hpInimigo"></div>
+                            HP:<div class="hpInimigoBulbasaur" id="hpInimigoBulbasaur"></div>
                         </div>
                     </div>
                 </div>
                 <div class="pokemon">
-                    <img src="https://art.pixilart.com/thumb/7e8988e96886ddd.png" style="width: 300px;">
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif" style="width: 200px; height: 200px;">
                 </div>
             </div>
             <div class="ladoDireito">
@@ -95,7 +95,7 @@
                     <div class="caixa">
                         Bulbasaur Level: 5
                         <div class="hp">
-                            HP:<div class="hpAliado" id="hpAliado"></div>
+                            HP:<div class="hpBulbasaur" id="hpBulbasaur"></div>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,107 @@
                     <button onclick="absorb_b()">Absorb</button>
                 </div>
             </div>
-            <div class="historico" id="div_historico"></div>
+            <div class="historico" id="div_historico_bulbasaur"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Container de batalha caso o escolhido seja o Charmander -->
+
+<div class="containerC" id="containerC">
+
+    <div class="telaBatalha">
+        <div class="telaLuta">
+            <div class="ladoEsquerdo">
+                <div class="vidaInimigo">
+                    <div class="caixa">
+                        Rattata Level: 5
+                        <div class="hp">
+                            HP:<div class="hpInimigoCharmander" id="hpInimigoCharmander"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemon">
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif" style="width: 200px; height: 200px;">
+                </div>
+            </div>
+            <div class="ladoDireito">
+                <div class="inimigo">
+                    <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style= "width: 200px;">
+                </div>
+                <div class="vidaPokemon">
+                    <div class="caixa">
+                        Charmander Level: 5
+                        <div class="hp">
+                            HP:<div class="hpAliado" id="hpAliado"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hub">
+            <div class="ataques">
+                <div class="box">
+                    <button onclick="">Tackle</button>
+                    <button onclick="">Growl</button>
+                </div>
+                <div class="box">
+                    <button onclick="">Absorb</button>
+                </div>
+            </div>
+            <div class="historico" id="div_historico_charmander"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Container de batalha caso o escolhido seja o Squirtle -->
+
+<div class="containerS" id="containerS">
+
+    <div class="telaBatalha">
+        <div class="telaLuta">
+            <div class="ladoEsquerdo">
+                <div class="vidaInimigo">
+                    <div class="caixa">
+                        Rattata Level: 5
+                        <div class="hp">
+                            HP:<div class="hpInimigoSquirtle" id="hpInimigoSquirtle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemon">
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif" style="width: 200px; height: 200px;">
+                </div>
+            </div>
+            <div class="ladoDireito">
+                <div class="inimigo">
+                    <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style= "width: 200px;">
+                </div>
+                <div class="vidaPokemon">
+                    <div class="caixa">
+                        Squirtle Level: 5
+                        <div class="hp">
+                            HP:<div class="hpAliado" id="hpAliado"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hub">
+            <div class="ataques">
+                <div class="box">
+                    <button onclick="">Tackle</button>
+                    <button onclick="">Growl</button>
+                </div>
+                <div class="box">
+                    <button onclick="">Absorb</button>
+                </div>
+            </div>
+            <div class="historico" id="div_historico_squirtle"></div>
         </div>
     </div>
 
@@ -123,45 +223,54 @@
 
 <script>
 
+    // Seleção e cadastro de pokémon
+
     function escolherBulbasaur() {
-        container.style.display='flex';
+        containerB.style.display='flex';
+        document.getElementById("button_squirtle").disabled = true;
+        document.getElementById("button_charmander").disabled = true;
     }
 
     function escolherCharmander() {
-
+        containerC.style.display='flex';
+        document.getElementById("button_squirtle").disabled = true;
+        document.getElementById("button_bulbasaur").disabled = true;
     }
 
     function escolherSquirtle() {
-        
+        containerS.style.display='flex';
+        document.getElementById("button_bulbasaur").disabled = true;
+        document.getElementById("button_charmander").disabled = true;
     }
 
     
     // Ataques do Bulbasaur
 
-    var vidaAliado = 200;
-    var vidaInimigo = 200;
+    var vidaBulbasaur = 200;
+    var vidaInimigo_bulbasaur = 200;
     var efeitoGrowl = false;
 
     function tackle_b() {
 
         var mensagem = 'Bulbasaur usou Tackle!<br>';
-        
-        var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
-        
-        if (chanceCritico == 8) {
-            var dano = 30;
-            vidaInimigo -= dano;
-            mensagem += `Foi um golpe com acerto crítico!<br>`
-            hpInimigo.style.width = `${vidaInimigo}px`;
-        } else {
-            var dano = 20;
-            vidaInimigo -= dano;
-            hpInimigo.style.width = `${vidaInimigo}px`;
-        }
-        
-        div_historico.innerHTML += mensagem;
+        div_historico_bulbasaur.innerHTML += mensagem;
 
-        turnoInimigo();
+        setTimeout(() => {
+            var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
+            
+            if (chanceCritico == 8) {
+                var dano = 30;
+                vidaInimigo_bulbasaur -= dano;
+                mensagem += `Foi um golpe com acerto crítico!<br>`
+                hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
+            } else {
+                var dano = 20;
+                vidaInimigo_bulbasaur -= dano;
+                hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
+            }
+        }, "1000");
+
+        turnoInimigo_bulbasaur();
 
     }
 
@@ -169,71 +278,122 @@
 
         if (efeitoGrowl == false) {
             var mensagem = 'Bulbasaur usou Growl!<br> O ataque de Rattata foi reduzido!<br>';
-            div_historico.innerHTML += mensagem;
+            div_historico_bulbasaur.innerHTML += mensagem;
             efeitoGrowl = true;
-            turnoInimigo();
+            turnoInimigo_bulbasaur();
         } else {
             var mensagem = 'Bulbasaur já utilizou Growl, ele não pode utilizar novamente<br>';
-            div_historico.innerHTML += mensagem;
+            div_historico_bulbasaur.innerHTML += mensagem;
         }
 
     }
 
     function absorb_b() {
-        var dano = 15;
-        vidaInimigo -= dano;
-        hpInimigo.style.width = `${vidaInimigo}px`;
-        
-        if (hpAliado.style.width < `200px`){
-            var cura = 10;
-            vidaAliado += cura;
-            hpAliado.style.width = `${vidaAliado}px`
-        }
 
         var mensagem = 'Bulbasaur usou Absorb!<br>';
-        div_historico.innerHTML += mensagem;
-        turnoInimigo();
+        div_historico_bulbasaur.innerHTML += mensagem;
+        setTimeout(() => {
+
+                var dano = 15;
+                vidaInimigo_bulbasaur -= dano;
+                hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
+            
+                if (hpBulbasaur.style.width < `200px`){
+                    var cura = 10;
+                    vidaBulbasaur += cura;
+                    hpBulbasaur.style.width = `${vidaBulbasaur}px`
+                }
+        }, "1000");
+        
+        turnoInimigo_bulbasaur();
+    }
+
+    
+    // Ataques do adversário (Bulbasaur)
+    
+    var numeroAcertos = 0;
+    var acertosFurySwipes = [];
+    var efeitoTailWhipInimigo = false;
+
+    function turnoInimigo_bulbasaur() {
+
+        var mensagem = '';
+        var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
+        
+        setTimeout(() => {
+
+            if (ataqueInimigo == 1) {
+    
+                if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
+                    var dano = 15;
+                    vidaBulbasaur -= dano;
+                    hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else if (efeitoTailWhipInimigo == false && efeitoGrowl == true) {
+                    var dano = 10;
+                    vidaBulbasaur -= dano;
+                    hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else if (efeitoTailWhipInimigo == true && efeitoGrowl == false) {
+                    var dano = 20;
+                    vidaBulbasaur -= dano;
+                    hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else if (efeitoTailWhipInimigo == false && efeitoGrowl == false) {
+                    var dano = 15;
+                    vidaBulbasaur -= dano;
+                    hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } 
+    
+            } else if (ataqueInimigo == 2) {
+    
+                if (efeitoTailWhipInimigo == false) {
+                    efeitoTailWhipInimigo = true;
+                    mensagem = `Rattata atacou usando Tail Whip!<br>
+                    A defesa de seu pokémon foi reduzida!<br><br>`;
+                } else {
+                    mensagem = `Rattata utilizou novamente Tail Whip!<br>
+                    O ataque não surtiu efeito em seu pokémon!<br><br>`;
+                }
+    
+            } else if (ataqueInimigo == 3) {
+    
+                for (i = 0; i < 5; i++) {
+                    var acertoAtual = parseInt(Math.random() * (1 + 1));
+                    acertosFurySwipes.push(acertoAtual);
+                }
+                
+                for (i = 0; i < 5; i++) {
+                    var acertoAtual = acertosFurySwipes[i];
+                    if (acertoAtual == 1) {
+                        numeroAcertos += 1;
+                    }
+                }
+                mensagem = `Rattata atacou usando Fury Swipes!<br>
+                Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
+            }
+
+            div_historico_bulbasaur.innerHTML += mensagem;
+            
+            var dano = (numeroAcertos * 10);
+            vidaBulbasaur -= dano;
+            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+            
+            numeroAcertos = 0;
+            acertosFurySwipes = [];
+
+        }, "1000");
     }
 
     // Ataques do Charmander
 
+    var vidaCharmander = 200;
+    var vidaInimigo_charmander = 200;
 
     // Ataques do Squirtle
 
+    var vidaSquirtle = 200;
+    var vidaInimigo_squirtle = 200;
 
-    // Ataques do adversário
-
-    var efeitoTailWhipInimigo = false;
-
-    function turnoInimigo() {
-
-        var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
-        var mensagem = '';
-        
-        if (ataqueInimigo == 1) {
-
-            var dano = 15;
-            vidaAliado -= dano;
-            hpAliado.style.width = `${vidaAliado}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-
-        } else if (ataqueInimigo == 2) {
-
-            if (efeitoTailWhipInimigo == false) {
-                efeitoTailWhipInimigo = true;
-                mensagem = `Rattata atacou usando Tail Whip!<br>
-                A defesa de seu pokémon foi reduzida!<br><br>`;
-            } else {
-                mensagem = `Rattata utilizou novamente Tail Whip!<br>
-                O ataque não surtiu efeito em seu pokémon!<br><br>`;
-            }
-
-        } else if (ataqueInimigo == 3) {
-
-            mensagem = `Rattata atacou usando Fury Swipes!<br>
-            Rattata atingiou ${a} vezes seu pokémon!<br><br>`;
-
-        }
-            div_historico.innerHTML += mensagem;
-    }
 </script>

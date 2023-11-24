@@ -3,8 +3,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-size: cover;
-    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
 }
 .introducao {
     width: 100%;
@@ -12,7 +10,10 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-size: contain;
     justify-content: space-around;
+    border-bottom: 5px solid #F2F2F2;
+    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
 }
 .header {
     width: 90%;
@@ -166,14 +167,43 @@ body {
 
 /* Tela aonde acontecerá a luta entre pokémons */
 
-.container {
+.containerB {
     width: 100%;
     height: 100vh;
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: aqua;
+    background-size: contain;
+    border-bottom: 5px solid #F2F2F2;
+    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
+    /* background-color: aqua; */
+}
+
+.containerC {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-size: contain;
+    border-bottom: 5px solid #F2F2F2;
+    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
+    /* background-color: aqua; */
+}
+
+.containerS {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-size: contain;
+    border-bottom: 5px solid #F2F2F2;
+    background-image: url(https://wallpapercave.com/wp/wp7808611.png);
+    /* background-color: aqua; */
 }
 
 .telaBatalha {
@@ -250,18 +280,49 @@ body {
     justify-content: center;
     background-color: lightgray;
 }
-.hpInimigo {
+
+.hpInimigoBulbasaur {
     height: 75%;
     width: 200px;
     margin-left: 10px;
     background-color: red;
 }
-.hpAliado {
+
+.hpInimigoCharmander {
     height: 75%;
     width: 200px;
     margin-left: 10px;
     background-color: red;
 }
+
+.hpInimigoSquirtle {
+    height: 75%;
+    width: 200px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.hpBulbasaur {
+    height: 75%;
+    width: 200px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.hpCharmander {
+    height: 75%;
+    width: 200px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.hpSquirtle {
+    height: 75%;
+    width: 200px;
+    margin-left: 10px;
+    background-color: red;
+}
+
 .hub {
     width: 100%;
     height: 20%;
