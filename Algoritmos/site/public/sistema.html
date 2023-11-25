@@ -105,13 +105,14 @@
         <div class="hub">
             <div class="ataques">
                 <div class="box">
-                    <button onclick="tackle_b()">Tackle</button>
-                    <button onclick="growl_b()">Growl</button>
+                    <button class="buttonAtaque" onclick="tackle_b()">Tackle</button>
+                    <button class="buttonAtaque" onclick="growl_b()">Growl</button>
                 </div>
                 <div class="box">
-                    <button onclick="absorb_b()">Absorb</button>
+                    <button class="buttonAtaque" onclick="absorb_b()">Absorb</button>
                 </div>
             </div>
+            <div class="descricaoAtaque" id="div_descricao_bulbasaur"></div>
             <div class="historico" id="div_historico_bulbasaur"></div>
         </div>
     </div>
@@ -145,7 +146,7 @@
                     <div class="caixa">
                         Charmander Level: 5
                         <div class="hp">
-                            HP:<div class="hpAliado" id="hpAliado"></div>
+                            HP:<div class="hpCharmander" id="hpCharmander"></div>
                         </div>
                     </div>
                 </div>
@@ -155,13 +156,14 @@
         <div class="hub">
             <div class="ataques">
                 <div class="box">
-                    <button onclick="">Tackle</button>
-                    <button onclick="">Growl</button>
+                    <button class="buttonAtaque" onclick="scratch_c()">Scratch</button>
+                    <button class="buttonAtaque" onclick="growl_c()">Growl</button>
                 </div>
                 <div class="box">
-                    <button onclick="">Absorb</button>
+                    <button class="buttonAtaque" onclick="ember_c()">Ember</button>
                 </div>
             </div>
+            <div class="descricaoAtaque" id="div_descricao_charmander"></div>
             <div class="historico" id="div_historico_charmander"></div>
         </div>
     </div>
@@ -195,7 +197,7 @@
                     <div class="caixa">
                         Squirtle Level: 5
                         <div class="hp">
-                            HP:<div class="hpAliado" id="hpAliado"></div>
+                            HP:<div class="hpSquirtle" id="hpSquirtle"></div>
                         </div>
                     </div>
                 </div>
@@ -205,13 +207,14 @@
         <div class="hub">
             <div class="ataques">
                 <div class="box">
-                    <button onclick="">Tackle</button>
-                    <button onclick="">Growl</button>
+                    <button class="buttonAtaque" onclick="tackle_s()">Tackle</button>
+                    <button class="buttonAtaque" onclick="tailWhip_s()">Tail Whip</button>
                 </div>
                 <div class="box">
-                    <button onclick="">Absorb</button>
+                    <button class="buttonAtaque" onclick="waterPulse_s()">Water Pulse</button>
                 </div>
             </div>
+            <div class="descricaoAtaque" id="div_descricao_squirtle"></div>
             <div class="historico" id="div_historico_squirtle"></div>
         </div>
     </div>
@@ -251,24 +254,22 @@
     var efeitoGrowl = false;
 
     function tackle_b() {
-
+        
         var mensagem = 'Bulbasaur usou Tackle!<br>';
-        div_historico_bulbasaur.innerHTML += mensagem;
+        var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
+        
+        if (chanceCritico == 8) {
+            var dano = 40;
+            vidaInimigo_bulbasaur -= dano;
+            mensagem += `Foi um golpe com acerto crítico!<br>`
+        } else {
+            var dano = 20;
+            vidaInimigo_bulbasaur -= dano;
+        }
 
-        setTimeout(() => {
-            var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
-            
-            if (chanceCritico == 8) {
-                var dano = 30;
-                vidaInimigo_bulbasaur -= dano;
-                mensagem += `Foi um golpe com acerto crítico!<br>`
-                hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
-            } else {
-                var dano = 20;
-                vidaInimigo_bulbasaur -= dano;
-                hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
-            }
-        }, "1000");
+        hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
+        
+        div_historico_bulbasaur.innerHTML += mensagem;
 
         turnoInimigo_bulbasaur();
 
@@ -294,7 +295,7 @@
         div_historico_bulbasaur.innerHTML += mensagem;
         setTimeout(() => {
 
-                var dano = 15;
+                var dano = 20;
                 vidaInimigo_bulbasaur -= dano;
                 hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
             
@@ -383,17 +384,235 @@
             numeroAcertos = 0;
             acertosFurySwipes = [];
 
-        }, "1000");
+        }, "2000");
     }
 
     // Ataques do Charmander
 
     var vidaCharmander = 200;
     var vidaInimigo_charmander = 200;
+    var efeitoGrowl = false;
+
+    function scratch_c() {
+
+    var mensagem = 'Charmander usou Scratch!<br>';
+    var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
+    
+    if (chanceCritico == 8) {
+        var dano = 40;
+        vidaInimigo_charmander -= dano;
+        mensagem += `Foi um golpe com acerto crítico!<br>`
+    } else {
+        var dano = 20;
+        vidaInimigo_charmander -= dano;
+    }
+
+    setTimeout(() => {
+    hpInimigoCharmander.style.width = `${vidaInimigo_charmander}px`;
+    }, "1000");
+
+    div_historico_charmander.innerHTML += mensagem;
+
+    turnoInimigo_charmander();
+
+    }
+
+    function growl_c() {
+
+    if (efeitoGrowl == false) {
+    var mensagem = 'Charmander usou Growl!<br> O ataque de Rattata foi reduzido!<br>';
+    div_historico_charmander.innerHTML += mensagem;
+    efeitoGrowl = true;
+    turnoInimigo_charmander();
+    } else {
+    var mensagem = 'Charmander já utilizou Growl, ele não pode utilizar novamente<br>';
+    div_historico_charmander.innerHTML += mensagem;
+    }
+
+    }
+
+    function ember_c() {
+
+        var mensagem = 'Charmander usou Ember!<br>';
+        var chanceQueimadura = 1 + parseInt(Math.random() * (3 + 1));
+        
+        if (chanceQueimadura == 4) {
+            var dano = 30;
+            vidaInimigo_charmander -= dano;
+            mensagem += `Ember causou queimadura!<br>O dano causado foi maior!<br>`
+        } else {
+            var dano = 20;
+            vidaInimigo_charmander -= dano;
+        }
+        
+        setTimeout(() => {
+            hpInimigoCharmander.style.width = `${vidaInimigo_charmander}px`;
+        }, "1000");
+        
+        div_historico_charmander.innerHTML += mensagem;
+
+        turnoInimigo_charmander();
+
+    }
+
+    // Ataques do adversário (Charmander)
+
+    var numeroAcertos = 0;
+    var acertosFurySwipes = [];
+    var efeitoTailWhipInimigo = false;
+
+    function turnoInimigo_charmander() {
+
+    var mensagem = '';
+    var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
+
+    setTimeout(() => {
+
+    if (ataqueInimigo == 1) {
+
+        if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
+            var dano = 15;
+            vidaCharmander -= dano;
+            hpCharmander.style.width = `${vidaCharmander}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == true) {
+            var dano = 10;
+            vidaCharmander -= dano;
+            hpCharmander.style.width = `${vidaCharmander}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } else if (efeitoTailWhipInimigo == true && efeitoGrowl == false) {
+            var dano = 20;
+            vidaCharmander -= dano;
+            hpCharmander.style.width = `${vidaCharmander}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == false) {
+            var dano = 15;
+            vidaCharmander -= dano;
+            hpCharmander.style.width = `${vidaCharmander}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } 
+
+    } else if (ataqueInimigo == 2) {
+
+        if (efeitoTailWhipInimigo == false) {
+            efeitoTailWhipInimigo = true;
+            mensagem = `Rattata atacou usando Tail Whip!<br>
+            A defesa de seu pokémon foi reduzida!<br><br>`;
+        } else {
+            mensagem = `Rattata utilizou novamente Tail Whip!<br>
+            O ataque não surtiu efeito em seu pokémon!<br><br>`;
+        }
+
+    } else if (ataqueInimigo == 3) {
+
+        for (i = 0; i < 5; i++) {
+            var acertoAtual = parseInt(Math.random() * (1 + 1));
+            acertosFurySwipes.push(acertoAtual);
+        }
+        
+        for (i = 0; i < 5; i++) {
+            var acertoAtual = acertosFurySwipes[i];
+            if (acertoAtual == 1) {
+                numeroAcertos += 1;
+            }
+        }
+        mensagem = `Rattata atacou usando Fury Swipes!<br>
+        Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
+    }
+
+    div_historico_charmander.innerHTML += mensagem;
+    
+    var dano = (numeroAcertos * 10);
+    vidaCharmander -= dano;
+    hpCharmander.style.width = `${vidaCharmander}px`;
+    
+    numeroAcertos = 0;
+    acertosFurySwipes = [];
+
+    }, "2000");
+}
 
     // Ataques do Squirtle
 
     var vidaSquirtle = 200;
     var vidaInimigo_squirtle = 200;
+    var efeitoTailWhip = false;
+
+    // Ataques do adversário (Squirtle)
+
+    var numeroAcertos = 0;
+    var acertosFurySwipes = [];
+    var efeitoTailWhipInimigo = false;
+
+    function turnoInimigo_squirtle() {
+
+    var mensagem = '';
+    var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
+
+    setTimeout(() => {
+
+    if (ataqueInimigo == 1) {
+
+        if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
+            var dano = 15;
+            vidaSquirtle -= dano;
+            hpSquirtle.style.width = `${vidaSquirtle}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == true) {
+            var dano = 10;
+            vidaBulbasaur -= dano;
+            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } else if (efeitoTailWhipInimigo == true && efeitoGrowl == false) {
+            var dano = 20;
+            vidaBulbasaur -= dano;
+            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == false) {
+            var dano = 15;
+            vidaBulbasaur -= dano;
+            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+            mensagem = 'Rattata atacou usando Tackle!<br><br>';
+        } 
+
+    } else if (ataqueInimigo == 2) {
+
+        if (efeitoTailWhipInimigo == false) {
+            efeitoTailWhipInimigo = true;
+            mensagem = `Rattata atacou usando Tail Whip!<br>
+            A defesa de seu pokémon foi reduzida!<br><br>`;
+        } else {
+            mensagem = `Rattata utilizou novamente Tail Whip!<br>
+            O ataque não surtiu efeito em seu pokémon!<br><br>`;
+        }
+
+    } else if (ataqueInimigo == 3) {
+
+        for (i = 0; i < 5; i++) {
+            var acertoAtual = parseInt(Math.random() * (1 + 1));
+            acertosFurySwipes.push(acertoAtual);
+        }
+        
+        for (i = 0; i < 5; i++) {
+            var acertoAtual = acertosFurySwipes[i];
+            if (acertoAtual == 1) {
+                numeroAcertos += 1;
+            }
+        }
+        mensagem = `Rattata atacou usando Fury Swipes!<br>
+        Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
+    }
+
+    div_historico_squirtle.innerHTML += mensagem;
+    
+    var dano = (numeroAcertos * 10);
+    vidaBulbasaur -= dano;
+    hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+    
+    numeroAcertos = 0;
+    acertosFurySwipes = [];
+
+    }, "2000");
+}
 
 </script>
