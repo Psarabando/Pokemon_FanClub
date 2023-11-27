@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 .introducao {
-    width: 100%;
+    width: 100%;    
     height: 120vh;
     display: flex;
     align-items: center;
@@ -335,7 +335,7 @@ body {
 
 .ataques {
     width: 40%;
-    height: 90%;
+    height: 85%;
     display: flex;
     border-radius: 10px;
     flex-direction: column;
@@ -364,9 +364,9 @@ body {
 
 .descricaoAtaque {
     width: 23%;
-    height: 90%;
-    font-size: 25px;
-    font-weight: bold;
+    height: 85%;
+    font-size: 20px;
+    text-align: center;
     border-radius: 10px;
     background-color: #F2F2F2;
     border: 8px solid #9583B6;
@@ -374,10 +374,11 @@ body {
 
 .historico {
     width: 32%;
-    height: 90%;
-    font-size: 25px;
+    height: 85%;
+    font-size: 18px;
     font-weight: bold;
     overflow-y: scroll;
+    text-align: center;
     border-radius: 10px;
     background-color: #F2F2F2;
     border: 8px solid #9583B6;

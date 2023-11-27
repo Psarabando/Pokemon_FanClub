@@ -269,6 +269,7 @@
 
         hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
         
+        div_descricao_bulbasaur.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
         div_historico_bulbasaur.innerHTML += mensagem;
 
         turnoInimigo_bulbasaur();
@@ -287,12 +288,15 @@
             div_historico_bulbasaur.innerHTML += mensagem;
         }
 
+        div_descricao_bulbasaur.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
+
     }
 
     function absorb_b() {
 
         var mensagem = 'Bulbasaur usou Absorb!<br>';
         div_historico_bulbasaur.innerHTML += mensagem;
+        div_descricao_bulbasaur.innerHTML = `<b>Tipo/Planta</b><br>Absorve a vida do oponente causando dano e restaurando parte da vida do usuário`;
         setTimeout(() => {
 
                 var dano = 20;
@@ -412,6 +416,7 @@
     }, "1000");
 
     div_historico_charmander.innerHTML += mensagem;
+    div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
 
     turnoInimigo_charmander();
 
@@ -428,6 +433,7 @@
     var mensagem = 'Charmander já utilizou Growl, ele não pode utilizar novamente<br>';
     div_historico_charmander.innerHTML += mensagem;
     }
+    div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
 
     }
 
@@ -450,6 +456,7 @@
         }, "1000");
         
         div_historico_charmander.innerHTML += mensagem;
+        div_descricao_charmander.innerHTML = `<b>Tipo/Fogo</b><br>Causa dano ao oponente. Possui a chance de queimar o alvo, causando um dano maior`;
 
         turnoInimigo_charmander();
 
@@ -538,6 +545,86 @@
     var vidaInimigo_squirtle = 200;
     var efeitoTailWhip = false;
 
+    function tackle_s() {
+
+        if (efeitoTailWhip == false) {
+            var mensagem = 'Squirtle usou Tackle!<br>';
+            var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
+        
+            if (chanceCritico == 8) {
+            var dano = 40;
+            vidaInimigo_squirtle -= dano;
+            mensagem += `Foi um golpe com acerto crítico!<br>`
+            } else {
+            var dano = 20;
+            vidaInimigo_squirtle -= dano;
+            }
+        } else {
+            var mensagem = 'Squirtle usou Tackle!<br>';
+            var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
+        
+            if (chanceCritico == 8) {
+            var dano = 45;
+            vidaInimigo_squirtle -= dano;
+            mensagem += `Foi um golpe com acerto crítico!<br>`
+            } else {
+            var dano = 25;
+            vidaInimigo_squirtle -= dano;
+            }
+        }
+
+
+    setTimeout(() => {
+    hpInimigoSquirtle.style.width = `${vidaInimigo_squirtle}px`;
+    }, "1000");
+
+    div_historico_squirtle.innerHTML += mensagem;
+    div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
+
+    turnoInimigo_squirtle();
+
+}
+
+    function tailWhip_s() {
+
+    if (efeitoTailWhip == false) {
+        var mensagem = 'Squirtle atacou usando Tail Whip!<br>A defesa do oponente foi reduzida!<br>';
+        div_historico_squirtle.innerHTML += mensagem;
+        efeitoTailWhip = true;
+        turnoInimigo_squirtle();
+    } else {
+        var mensagem = 'Squirtle já utilizou Tail Whip, ele não pode utilizar novamente<br>';
+        div_historico_squirtle.innerHTML += mensagem;
+    }
+        div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Reduz a defesa do oponente. Não pode ser usado mais de uma vez`;
+
+    }
+
+    function waterPulse_s() {
+
+        var mensagem = 'Squirtle usou Water Pulse!<br>';
+        var chanceConfusao = 1 + parseInt(Math.random() * (4 + 1));
+        
+        if (chanceConfusao == 5) {
+            var dano = 30;
+            vidaInimigo_squirtle -= dano;
+            mensagem += `Water Pulse deixou o oponente confuso!<br>O oponente perdeu o turno!<br>`
+        } else {
+            var dano = 30;
+            vidaInimigo_squirtle -= dano;
+            turnoInimigo_squirtle();
+        }
+        
+        setTimeout(() => {
+            hpInimigoSquirtle.style.width = `${vidaInimigo_squirtle}px`;
+        }, "1000");
+        
+        div_historico_squirtle.innerHTML += mensagem;
+        div_descricao_squirtle.innerHTML = `<b>Tipo/Água</b><br>Causa dano ao oponente. Possuindo a chance do oponente perder o turno`;
+
+
+    }
+
     // Ataques do adversário (Squirtle)
 
     var numeroAcertos = 0;
@@ -553,25 +640,15 @@
 
     if (ataqueInimigo == 1) {
 
-        if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
-            var dano = 15;
+        if (efeitoTailWhipInimigo == true) {
+            var dano = 20;
             vidaSquirtle -= dano;
             hpSquirtle.style.width = `${vidaSquirtle}px`;
             mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == true) {
-            var dano = 10;
-            vidaBulbasaur -= dano;
-            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else if (efeitoTailWhipInimigo == true && efeitoGrowl == false) {
-            var dano = 20;
-            vidaBulbasaur -= dano;
-            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == false) {
+        } else {
             var dano = 15;
-            vidaBulbasaur -= dano;
-            hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+            vidaSquirtle -= dano;
+            hpSquirtle.style.width = `${vidaSquirtle}px`;
             mensagem = 'Rattata atacou usando Tackle!<br><br>';
         } 
 
@@ -606,8 +683,8 @@
     div_historico_squirtle.innerHTML += mensagem;
     
     var dano = (numeroAcertos * 10);
-    vidaBulbasaur -= dano;
-    hpBulbasaur.style.width = `${vidaBulbasaur}px`;
+    vidaSquirtle -= dano;
+    hpSquirtle.style.width = `${vidaSquirtle}px`;
     
     numeroAcertos = 0;
     acertosFurySwipes = [];
