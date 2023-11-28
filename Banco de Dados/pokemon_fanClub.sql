@@ -3,6 +3,7 @@
 CREATE DATABASE Pokemon;
 USE Pokemon;
 
+DROP DATABASE Pokemon;
 -- Criação das tabelas
 
 CREATE TABLE Usuario (
@@ -13,9 +14,9 @@ email VARCHAR(45) UNIQUE,
 senha VARCHAR(45) NOT NULL
 );
 
-DROP TABLE Usuario;
-
 SELECT * FROM Usuario;
+
+DROP TABLE Usuario;
 
 CREATE TABLE Pontos (
 idPontos INT AUTO_INCREMENT,
