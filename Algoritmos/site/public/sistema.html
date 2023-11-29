@@ -224,9 +224,9 @@
 
 <!-- Container onde será mostrado as dashboards pós batalha -->
 
-    <div class="containerDashboards">
+    <div class="containerResultados">
         <div class="boxResultado">
-            <div class="boxTitulo"><img src="./midias/pokeball.png">Resultados<img src="./midias/pokeball.png"></div>
+            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
         </div>
 
         <div class="cardGraficos">
@@ -237,9 +237,25 @@
                 </div>
             </div>
             <div class="boxGrafico">
-                <div class="boxTituloSecundario">Pontuação geral entre jogadores</div>
-                <div class="boxDashboard">
-                    <canvas id="barras"></canvas>
+                <div class="boxTituloSecundario">Comparação de pontos</div>
+                <div class="boxCompararPontos">
+                <div class="cardDados">
+                    <div class="cardPontos">
+                        <div class="cardTop">Sua pontuação</div>
+                        <div class="cardMid">
+                            <div class="boxPontosUsuario"></div>
+                        </div>
+                    </div>
+                    <div class="cardPontos">
+                        <div class="cardTop">Pontuação média</div>
+                        <div class="cardMid">
+                            <div class="boxMediaPontos"></div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="cardBottom">
+                        <div class="boxResposta"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,62 +265,6 @@
 </html>
 
 <script>
-
-    // Dashboards utilizadas via Chart.js
-
-    const ctx = document.getElementById('PorcentagemEscolha');
-    const ctx2 = document.getElementById('barras');
-
-    new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-        datasets: [{
-        label: 'Porcentagem de escolha entre jogadores',
-        data: [46, 25, 29],
-        backgroundColor: [
-        '#78C850',
-        '#F08030',
-        '#6890F0'
-        ],
-    hoverOffset: 4
-    }]
-        },
-    });
-
-
-    new Chart(ctx2, {
-      type: 'bar',
-      data: {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-        datasets: [
-        {
-          label: 'Temperatura Média',
-          data: [22, 24, 27, 23, 20, 18],
-          borderWidth: 1,
-          backgroundColor: [
-            '#CF0E0E'
-          ],
-          borderWidth: 1
-        },    
-        {
-          label: 'Umidade Média',
-          data: [90, 89, 93, 87, 88, 82],
-          backgroundColor: [
-            '#00A8FF'
-          ],
-          borderWidth: 1
-        }]
-    },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
 
     // Seleção e cadastro de pokémon
 
@@ -327,6 +287,8 @@
     }
 
     
+    // Script do combate, contendo as funções de ataque do Bulbasaur, Charmander, Squirtle e Rattata
+
     // Ataques do Bulbasaur
 
     var vidaBulbasaur = 200;
@@ -771,5 +733,33 @@
 
     }, "2000");
 }
+
+    // Após a batalha será exibido a tela de resultados contendo uma dashboard e uma comparação de pontos
+
+    // Dashboard utilizada via Chart.js
+
+    const ctx = document.getElementById('PorcentagemEscolha');
+
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+        datasets: [{
+        label: 'Porcentagem de escolha entre jogadores',
+        data: [33, 33, 33],
+        backgroundColor: [
+        '#78C850',
+        '#F08030',
+        '#6890F0'
+        ],
+        borderColor: '#000000',
+    hoverOffset: 4
+    }]
+        },
+    });
+
+    // Exibição de pontos do usuário, média da pontuação entre jogadores e resultado
+
+    
 
 </script>
