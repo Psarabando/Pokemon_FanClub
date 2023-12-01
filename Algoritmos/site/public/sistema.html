@@ -43,7 +43,7 @@
                         <div class="boxVeneno">Veneno</div>
                     </div>
 
-                    <button id="button_bulbasaur" class="button_bulbasaur" onclick="escolherBulbasaur()">Eu escolho você!</button>
+                    <a href="#containerB" class="buttonEscolher"><button id="button_bulbasaur" class="button_bulbasaur" onclick="escolherBulbasaur()">Eu escolho você!</button></a>
                 </div>
 
                 <div class="boxVertical">
@@ -53,7 +53,7 @@
                     <div class="tipagem">
                         <div class="boxFogo">Fogo</div>
                     </div>
-                    <button id="button_charmander" class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button>
+                    <a href="#containerC" class="buttonEscolher"><button id="button_charmander" class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button></a>
                 </div>
 
                 <div class="boxVertical">
@@ -63,7 +63,7 @@
                     <div class="tipagem">
                         <div class="boxAgua">Água</div>
                     </div>
-                    <button id="button_squirtle" class="button_squirtle" onclick="escolherSquirtle()">Eu escolho você!</button>
+                    <a href="#containerS" class="buttonEscolher"><button id="button_squirtle" class="button_squirtle" onclick="escolherSquirtle()">Eu escolho você!</button></a>
                 </div>
             </div>
         </div>
@@ -106,11 +106,11 @@
         <div class="hub">
             <div class="ataques">
                 <div class="box">
-                    <button class="buttonAtaque" onclick="tackle_b()">Tackle</button>
-                    <button class="buttonAtaque" onclick="growl_b()">Growl</button>
+                    <button class="buttonAtaque" id="tackle_b" onclick="tackle_b()">Tackle</button>
+                    <button class="buttonAtaque" id="growl_b" onclick="growl_b()">Growl</button>
                 </div>
                 <div class="box">
-                    <button class="buttonAtaque" onclick="absorb_b()">Absorb</button>
+                    <button class="buttonAtaque" id="absorb_b" onclick="absorb_b()">Absorb</button>
                 </div>
             </div>
             <div class="descricaoAtaque" id="div_descricao_bulbasaur"></div>
@@ -224,7 +224,7 @@
 
 <!-- Container onde será mostrado as dashboards pós batalha -->
 
-    <div class="containerResultados">
+    <div class="containerResultadosB" id="containerResultadosB">
         <div class="boxResultado">
             <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
         </div>
@@ -233,7 +233,7 @@
             <div class="boxGrafico">
                 <div class="boxTituloSecundario">Porcentagem de escolha dos pokémons</div>
                 <div class="boxDashboardPorcentagemEscolha">
-                    <canvas id="PorcentagemEscolha"></canvas>
+                    <canvas id="PorcentagemEscolhaB"></canvas>
                 </div>
             </div>
             <div class="boxGrafico">
@@ -243,7 +243,83 @@
                     <div class="cardPontos">
                         <div class="cardTop">Sua pontuação</div>
                         <div class="cardMid">
-                            <div class="boxPontosUsuario"></div>
+                            <div class="boxPontosUsuario" id="boxPontosUsuarioB"></div>
+                        </div>
+                    </div>
+                    <div class="cardPontos">
+                        <div class="cardTop">Pontuação média</div>
+                        <div class="cardMid">
+                            <div class="boxMediaPontos"></div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="cardBottom">
+                        <div class="boxResposta"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="containerResultadosC" id="containerResultadosC">
+        <div class="boxResultado">
+            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
+        </div>
+
+        <div class="cardGraficos">
+            <div class="boxGrafico">
+                <div class="boxTituloSecundario">Porcentagem de escolha dos pokémons</div>
+                <div class="boxDashboardPorcentagemEscolha">
+                    <canvas id="PorcentagemEscolhaC"></canvas>
+                </div>
+            </div>
+            <div class="boxGrafico">
+                <div class="boxTituloSecundario">Comparação de pontos</div>
+                <div class="boxCompararPontos">
+                <div class="cardDados">
+                    <div class="cardPontos">
+                        <div class="cardTop">Sua pontuação</div>
+                        <div class="cardMid">
+                            <div class="boxPontosUsuario" id="boxPontosUsuarioC"></div>
+                        </div>
+                    </div>
+                    <div class="cardPontos">
+                        <div class="cardTop">Pontuação média</div>
+                        <div class="cardMid">
+                            <div class="boxMediaPontos"></div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="cardBottom">
+                        <div class="boxResposta"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="containerResultadosS" id="containerResultadosS">
+        <div class="boxResultado">
+            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
+        </div>
+
+        <div class="cardGraficos">
+            <div class="boxGrafico">
+                <div class="boxTituloSecundario">Porcentagem de escolha dos pokémons</div>
+                <div class="boxDashboardPorcentagemEscolha">
+                    <canvas id="PorcentagemEscolhaS"></canvas>
+                </div>
+            </div>
+            <div class="boxGrafico">
+                <div class="boxTituloSecundario">Comparação de pontos</div>
+                <div class="boxCompararPontos">
+                <div class="cardDados">
+                    <div class="cardPontos">
+                        <div class="cardTop">Sua pontuação</div>
+                        <div class="cardMid">
+                            <div class="boxPontosUsuario" id="boxPontosUsuarioS"></div>
                         </div>
                     </div>
                     <div class="cardPontos">
@@ -315,7 +391,7 @@
         div_historico_bulbasaur.innerHTML += mensagem;
 
         turnoInimigo_bulbasaur();
-
+        
     }
 
     function growl_b() {
@@ -332,6 +408,7 @@
 
         div_descricao_bulbasaur.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
 
+        
     }
 
     function absorb_b() {
@@ -353,6 +430,7 @@
         }, "1000");
         
         turnoInimigo_bulbasaur();
+        
     }
 
     
@@ -431,6 +509,12 @@
             acertosFurySwipes = [];
 
         }, "2000");
+        
+        if (verificadoB == false) {
+        setTimeout(() => {
+        verificarB();
+        }, "3000");
+        }
     }
 
     // Ataques do Charmander
@@ -461,7 +545,7 @@
     div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
 
     turnoInimigo_charmander();
-
+    
     }
 
     function growl_c() {
@@ -477,6 +561,7 @@
     }
     div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
 
+    
     }
 
     function ember_c() {
@@ -501,7 +586,7 @@
         div_descricao_charmander.innerHTML = `<b>Tipo/Fogo</b><br>Causa dano ao oponente. Possui a chance de queimar o alvo, causando um dano maior`;
 
         turnoInimigo_charmander();
-
+        
     }
 
     // Ataques do adversário (Charmander)
@@ -579,6 +664,12 @@
     acertosFurySwipes = [];
 
     }, "2000");
+
+    if (verificadoC == false) {
+        setTimeout(() => {
+            verificarC();
+        }, "3000");
+    }
 }
 
     // Ataques do Squirtle
@@ -624,7 +715,7 @@
     div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
 
     turnoInimigo_squirtle();
-
+    
 }
 
     function tailWhip_s() {
@@ -640,6 +731,7 @@
     }
         div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Reduz a defesa do oponente. Não pode ser usado mais de uma vez`;
 
+        
     }
 
     function waterPulse_s() {
@@ -664,7 +756,7 @@
         div_historico_squirtle.innerHTML += mensagem;
         div_descricao_squirtle.innerHTML = `<b>Tipo/Água</b><br>Causa dano ao oponente. Possuindo a chance do oponente perder o turno`;
 
-
+        
     }
 
     // Ataques do adversário (Squirtle)
@@ -732,15 +824,185 @@
     acertosFurySwipes = [];
 
     }, "2000");
+
+    if (verificadoS == false) {
+        setTimeout(() => {
+            verificarS();
+        }, "3000");
+    }
 }
+
+    // Função para verificar a vitória ou derrota do usuário na batalha
+
+    var pontosUsuario = 0;
+
+    var verificadoB = false;
+    var verificadoC = false;
+    var verificadoS = false;
+
+    function verificarB() {
+
+        if (vidaBulbasaur <= 0) {
+
+            verificadoB = true;
+            alert(`Fim do combate!`);
+            hpBulbasaur.style.display='none';
+            div_historico_bulbasaur.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
+            containerResultadosB.style.display='flex';
+            boxPontosUsuarioB.innerHTML = '0';
+            document.getElementById("tackle_b").disabled = true;
+            document.getElementById("growl_b").disabled = true;
+            document.getElementById("absorb_b").disabled = true;
+
+            setTimeout(() => {
+                window.location = "#containerResultadosB";
+            }, "2000");
+
+        } else if (vidaInimigo_bulbasaur <= 0) {
+            
+            verificadoB = true;
+            alert(`Fim do combate!`);
+            hpInimigoBulbasaur.style.display='none';
+            pontosUsuario = vidaBulbasaur * 5;
+            div_historico_bulbasaur.innerHTML = 'Bulbasaur venceu a batalha!<br>Parabéns pela vitória!'
+            containerResultadosB.style.display='flex';
+            boxPontosUsuarioB.innerHTML = `${pontosUsuario}`;
+
+            document.getElementById("tackle_b").disabled = true;
+            document.getElementById("growl_b").disabled = true;
+            document.getElementById("absorb_b").disabled = true;
+            
+            setTimeout(() => {
+                window.location = "#containerResultadosB";
+            }, "2000");
+        }
+    }
+
+    function verificarC() {
+
+        if (vidaCharmander <= 0) {
+
+            verificadoC = true;
+            alert(`Fim do combate!`);
+            hpCharmander.style.display='none';
+            div_historico_charmander.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
+            containerResultadosC.style.display='flex';
+            boxPontosUsuarioC.innerHTML = '0';
+            document.getElementById("scratch_c").disabled = true;
+            document.getElementById("growl_c").disabled = true;
+            document.getElementById("ember_c").disabled = true;
+
+            setTimeout(() => {
+                window.location = "#containerResultadosC";
+            }, "2000");
+
+        } else if (vidaInimigo_charmander <= 0) {
+
+            verificadoC = true;
+            alert(`Fim do combate!`);
+            hpInimigoCharmander.style.display='none';
+            pontosUsuario = vidaCharmander * 5;
+            div_historico_charmander.innerHTML = 'Charmander venceu a batalha!<br>Parabéns pela vitória!'
+            containerResultadosC.style.display='flex';
+            boxPontosUsuarioC.innerHTML = `${pontosUsuario}`;
+
+            document.getElementById("scratch_c").disabled = true;
+            document.getElementById("growl_c").disabled = true;
+            document.getElementById("ember_c").disabled = true;
+
+            setTimeout(() => {
+                window.location = "#containerResultadosC";
+            }, "2000");
+
+        }
+    }
+
+    function verificarS() {
+
+        if (vidaSquirtle <= 0) {
+
+            verificadoS = true;
+            alert(`Fim do combate!`);
+            hpSquirtle.style.display='none';
+            div_historico_squirtle.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
+            containerResultadosS.style.display='flex';
+            boxPontosUsuarioS.innerHTML = '0';
+            document.getElementById("tackle_s").disabled = true;
+            document.getElementById("tailWhip_s").disabled = true;
+            document.getElementById("waterPulse_s").disabled = true;
+
+            setTimeout(() => {
+                window.location = "#containerResultadosS";
+            }, "2000");
+
+        }  else if (vidaInimigo_squirtle <= 0) {
+
+            verificadoS = true;
+            alert(`Fim do combate!`);
+            hpInimigoSquirtle.style.display='none';
+            pontosUsuario = vidaSquirtle * 5;
+            div_historico_squirtle.innerHTML = 'Squirtle venceu a batalha!<br>Parabéns pela vitória!'
+            containerResultadosS.style.display='flex';
+            boxPontosUsuarioS.innerHTML = `${pontosUsuario}`;
+
+            document.getElementById("tackle_s").disabled = true;
+            document.getElementById("tailWhip_s").disabled = true;
+            document.getElementById("waterPulse_s").disabled = true;
+
+            setTimeout(() => {
+                window.location = "#containerResultadosS";
+            }, "2000");
+
+        }
+    }
 
     // Após a batalha será exibido a tela de resultados contendo uma dashboard e uma comparação de pontos
 
     // Dashboard utilizada via Chart.js
 
-    const ctx = document.getElementById('PorcentagemEscolha');
+    const ctx = document.getElementById('PorcentagemEscolhaB');
 
     new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+        datasets: [{
+        label: 'Porcentagem de escolha entre jogadores',
+        data: [33, 33, 33],
+        backgroundColor: [
+        '#78C850',
+        '#F08030',
+        '#6890F0'
+        ],
+        borderColor: '#000000',
+    hoverOffset: 4
+    }]
+        },
+    });
+
+    const ctx2 = document.getElementById('PorcentagemEscolhaC');
+
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+        datasets: [{
+        label: 'Porcentagem de escolha entre jogadores',
+        data: [33, 33, 33],
+        backgroundColor: [
+        '#78C850',
+        '#F08030',
+        '#6890F0'
+        ],
+        borderColor: '#000000',
+    hoverOffset: 4
+    }]
+        },
+    });
+
+    const ctx3 = document.getElementById('PorcentagemEscolhaS');
+
+    new Chart(ctx3, {
       type: 'pie',
       data: {
         labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
