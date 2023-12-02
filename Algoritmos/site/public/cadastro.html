@@ -62,8 +62,32 @@
                 <span class="span">Confirmação da Senha:</span>
                 <input type="password" class="input" id="confirmacao_senha_input" placeholder="******">
             </div>
+            <div class="mensagemErro" id="mensagemErro_Cadastro"></div>
             <div class="campo">
                 <button class="cadastrar" onclick="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+        <div class="cardPesquisa" id="cardPesquisa">
+            <span class="titulo">Pesquisa</span>
+            <div class="campo">
+                <span class="span">País:</span>
+                <input type="text" class="input" id="pais_input" placeholder="País">
+            </div>
+            <div class="campo">
+                <span class="span">Estado:</span>
+                <input type="text" class="input" id="estado_input" placeholder="Estado">
+            </div>
+            <div class="campo">
+                <span class="span">Cidade:</span>
+                <input type="text" class="input" id="cidade_input" placeholder="Cidade">
+            </div>
+            <div class="campo">
+                <span class="span">Bairro:</span>
+                <input type="text" class="input" id="bairro_input" placeholder="Seu bairro">
+            </div>
+            <div class="mensagemErro" id="mensagemErro_Pesquisa"></div>
+            <div class="campo">
+                <button class="enviarPesquisa" onclick="enviarPesquisa()">Enviar</button>
             </div>
         </div>
     </div>
@@ -77,12 +101,14 @@
 
 <script>
 
+    // Processo de cadastro do usuário
+
     function cadastrar() {
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var idadeVar = idade_input.value
+    var idadeVar = Number(idade_input.value);
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
@@ -93,6 +119,7 @@
     confirmacaoSenhaVar == "" ||
     idadeVar == ""
     ) {
+    mensagemErro_Cadastro.innerHTML = `*Preencha todos os campos acima para efetuar o cadastro`
     return false;
     }
 
@@ -117,7 +144,8 @@
         if (resposta.ok) {
 
         setTimeout(() => {
-            window.location = "./login.html";
+            // window.location = "./login.html";
+            cardPesquisa.style.display='flex';
         }, "1000");
 
         // limparFormulario();
@@ -133,5 +161,9 @@
 
     return false;
     }
+
+    // Processo de envio da pesquisa do usuário
+
+
 
 </script>

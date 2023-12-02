@@ -50,6 +50,7 @@
                 <span class="span">Senha:</span>
                 <input type="password" class="input" id="senha_input" placeholder="******">
             </div>
+            <div class="mensagemErro" id="mensagemErro_Login"></div>
             <div class="campo">
                 <button class="entrar" onclick="entrar()">Entrar</button>
             </div>
@@ -75,11 +76,13 @@
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             // finalizarAguardar();
+            mensagemErro_Login.innerHTML = `*Preencha os campos acima para efetuar o login`;
             return false;
         }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
+        else {
+            // setInterval(sumirMensagem, 5000)
+            mensagemErro_Login.innerHTML = ``;
+        }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
