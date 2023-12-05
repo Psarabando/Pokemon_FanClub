@@ -388,10 +388,13 @@
 
     // Seleção e cadastro de pokémon
 
+    var pokemonAtual = 0;
+
     function escolherBulbasaur() {
         containerB.style.display = 'flex';
         document.getElementById("button_squirtle").disabled = true;
         document.getElementById("button_charmander").disabled = true;
+        pokemonAtual = 1;
 
 
         // Enviando o valor da nova input
@@ -404,6 +407,7 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 idUsuarioServer: idUsuario,
+                idPokemonServer: 1,
             }),
         })
             .then(function (resposta) {
@@ -433,12 +437,82 @@
         containerC.style.display = 'flex';
         document.getElementById("button_squirtle").disabled = true;
         document.getElementById("button_bulbasaur").disabled = true;
+        pokemonAtual = 2;
+
+        fetch("/medidas/cadastrarPokemon", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idUsuarioServer: idUsuario,
+                idPokemonServer: 2,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    // setTimeout(() => {
+                    //     window.location = "./login.html";
+                    // }, "1000");
+
+                    // limparFormulario();
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        return false;
     }
 
     function escolherSquirtle() {
         containerS.style.display = 'flex';
         document.getElementById("button_bulbasaur").disabled = true;
         document.getElementById("button_charmander").disabled = true;
+        pokemonAtual = 3;
+
+        fetch("/medidas/cadastrarPokemon", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idUsuarioServer: idUsuario,
+                idPokemonServer: 3,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    // setTimeout(() => {
+                    //     window.location = "./login.html";
+                    // }, "1000");
+
+                    // limparFormulario();
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        return false;
     }
 
 
@@ -510,6 +584,9 @@
 
         turnoInimigo_bulbasaur();
 
+        if (verificadoB == false) {
+            verificarB();
+        }
     }
 
 
@@ -590,9 +667,7 @@
         }, "2000");
 
         if (verificadoB == false) {
-            setTimeout(() => {
-                verificarB();
-            }, "3000");
+            verificarB();
         }
     }
 
@@ -666,6 +741,9 @@
 
         turnoInimigo_charmander();
 
+        if (verificadoC == false) {
+            verificarC();
+        }
     }
 
     // Ataques do adversário (Charmander)
@@ -745,9 +823,7 @@
         }, "2000");
 
         if (verificadoC == false) {
-            setTimeout(() => {
-                verificarC();
-            }, "3000");
+            verificarC();
         }
     }
 
@@ -835,7 +911,9 @@
         div_historico_squirtle.innerHTML += mensagem;
         div_descricao_squirtle.innerHTML = `<b>Tipo/Água</b><br>Causa dano ao oponente. Possuindo a chance do oponente perder o turno`;
 
-
+        if (verificadoS == false) {
+            verificarS();
+        }
     }
 
     // Ataques do adversário (Squirtle)
@@ -905,9 +983,7 @@
         }, "2000");
 
         if (verificadoS == false) {
-            setTimeout(() => {
-                verificarS();
-            }, "3000");
+            verificarS();
         }
     }
 
@@ -925,7 +1001,7 @@
 
             verificadoB = true;
             hpBulbasaur.style.display = 'none';
-            div_historico_bulbasaur.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
+            // div_historico_bulbasaur.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
             containerResultadosB.style.display = 'flex';
             containerPesquisa.style.display = 'flex';
             boxPontosUsuarioB.innerHTML = '0';
@@ -944,7 +1020,7 @@
             verificadoB = true;
             hpInimigoBulbasaur.style.display = 'none';
             pontosUsuario = vidaBulbasaur * 5;
-            div_historico_bulbasaur.innerHTML = 'Bulbasaur venceu a batalha!<br>Parabéns pela vitória!'
+            // div_historico_bulbasaur.innerHTML = 'Bulbasaur venceu a batalha!<br>Parabéns pela vitória!'
             containerResultadosB.style.display = 'flex';
             containerPesquisa.style.display = 'flex';
             boxPontosUsuarioB.innerHTML = `${pontosUsuario}`;
@@ -967,7 +1043,7 @@
 
             verificadoC = true;
             hpCharmander.style.display = 'none';
-            div_historico_charmander.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
+            // div_historico_charmander.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
             containerResultadosC.style.display = 'flex';
             containerPesquisa.style.display = 'flex';
             boxPontosUsuarioC.innerHTML = '0';
@@ -987,7 +1063,7 @@
             verificadoC = true;
             hpInimigoCharmander.style.display = 'none';
             pontosUsuario = vidaCharmander * 5;
-            div_historico_charmander.innerHTML = 'Charmander venceu a batalha!<br>Parabéns pela vitória!'
+            // div_historico_charmander.innerHTML = 'Charmander venceu a batalha!<br>Parabéns pela vitória!'
             containerResultadosC.style.display = 'flex';
             containerPesquisa.style.display = 'flex';
             boxPontosUsuarioC.innerHTML = `${pontosUsuario}`;
@@ -1011,7 +1087,7 @@
 
             verificadoS = true;
             hpSquirtle.style.display = 'none';
-            div_historico_squirtle.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
+            // div_historico_squirtle.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
             containerResultadosS.style.display = 'flex';
             containerPesquisa.style.display = 'flex';
             boxPontosUsuarioS.innerHTML = '0';
@@ -1031,7 +1107,7 @@
             verificadoS = true;
             hpInimigoSquirtle.style.display = 'none';
             pontosUsuario = vidaSquirtle * 5;
-            div_historico_squirtle.innerHTML = 'Squirtle venceu a batalha!<br>Parabéns pela vitória!'
+            // div_historico_squirtle.innerHTML = 'Squirtle venceu a batalha!<br>Parabéns pela vitória!'
             containerResultadosS.style.display = 'flex';
             containerPesquisa.style.display = 'flex';
             boxPontosUsuarioS.innerHTML = `${pontosUsuario}`;
@@ -1048,38 +1124,34 @@
 
         }
     }
-
+    
     // Após a batalha será exibido a tela de resultados contendo uma dashboard e uma comparação de pontos
-
+    
     // Dashboard utilizada via Chart.js
+    var resultadoGrafico = [];
 
-    function obterDadosGrafico(idUsuario) {
+    function obterDadosGrafico() {
 
-        // alterarTitulo(idAquario)
 
-        // if (proximaAtualizacao != undefined) {
-        //     clearTimeout(proximaAtualizacao);
-        // }
-
-        fetch(`/medidas/dadosGrafico/`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idUsuario);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
+        fetch(`/medidas/dadosGrafico`, {
+            method: "GET",
         })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            .then(function (resposta) {
+                console.log(resposta);
+                resposta.json().then((funcaoMedia) => {
+                    funcaoMedia.forEach((Pokemon) => {
+                        resultadoGrafico.push(Pokemon.BulbasaurResultado),
+                        resultadoGrafico.push(Pokemon.CharmanderResultado),
+                        resultadoGrafico.push(Pokemon.SquirtleResultado),
+                            plotarGrafico();
+                    });
+                });
             });
-    }
 
-    function plotarGrafico(resposta, idUsuario) {
+    };
+
+
+    function plotarGrafico() {
 
         console.log('iniciando plotagem do gráfico...');
 
@@ -1091,7 +1163,7 @@
             labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
             datasets: [{
                 label: 'Porcentagem de escolha entre jogadores',
-                data: [],
+                data: resultadoGrafico,
                 backgroundColor: [
                     '#78C850',
                     '#F08030',
@@ -1104,16 +1176,6 @@
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.Bulbasaur);
-            dados.datasets[1].data.push(registro.Charmander);
-            dados.datasets[2].data.push(registro.Squirtle);
-        }
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -1130,74 +1192,25 @@
         };
 
         // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`PorcentagemEscolhaB`),
-            config
-        );
+        if (pokemonAtual == 1) {
+            let myChart = new Chart(
+                document.getElementById(`PorcentagemEscolhaB`),
+                config
+            );
+        } else if (pokemonAtual == 2) {
+            let myChart = new Chart(
+                document.getElementById(`PorcentagemEscolhaC`),
+                config
+            );
+        } else if (pokemonAtual == 3) {
+            let myChart = new Chart(
+                document.getElementById(`PorcentagemEscolhaS`),
+                config
+            );
+        }
 
-        // setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
     }
 
-
-    // const ctx = document.getElementById('PorcentagemEscolhaB');
-
-    // new Chart(ctx, {
-    //     type: 'pie',
-    //     data: {
-    //         labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-    //         datasets: [{
-    //             label: 'Porcentagem de escolha entre jogadores',
-    //             data: [33, 33, 33],
-    //             backgroundColor: [
-    //                 '#78C850',
-    //                 '#F08030',
-    //                 '#6890F0'
-    //             ],
-    //             borderColor: '#000000',
-    //             hoverOffset: 4
-    //         }]
-    //     },
-    // });
-
-    const ctx2 = document.getElementById('PorcentagemEscolhaC');
-
-    new Chart(ctx2, {
-        type: 'pie',
-        data: {
-            labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-            datasets: [{
-                label: 'Porcentagem de escolha entre jogadores',
-                data: [33, 33, 33],
-                backgroundColor: [
-                    '#78C850',
-                    '#F08030',
-                    '#6890F0'
-                ],
-                borderColor: '#000000',
-                hoverOffset: 4
-            }]
-        },
-    });
-
-    const ctx3 = document.getElementById('PorcentagemEscolhaS');
-
-    new Chart(ctx3, {
-        type: 'pie',
-        data: {
-            labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-            datasets: [{
-                label: 'Porcentagem de escolha entre jogadores',
-                data: [33, 33, 33],
-                backgroundColor: [
-                    '#78C850',
-                    '#F08030',
-                    '#6890F0'
-                ],
-                borderColor: '#000000',
-                hoverOffset: 4
-            }]
-        },
-    });
 
     // Cadastro de pontos do usuário, exibição da média da pontuação entre jogadores e resultado
 
@@ -1209,8 +1222,6 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 pontuacaoServer: pontosUsuario,
                 idUsuarioServer: idUsuario
             }),
@@ -1233,104 +1244,38 @@
         return false;
     }
 
+    var mediaPontos = 0;
+
     function obterMediaPontos() {
 
-        // alterarTitulo(idAquario)
+        var paia = 'application/json';
+        console.log(paia);
 
-        // if (proximaAtualizacao != undefined) {
-        //     clearTimeout(proximaAtualizacao);
-        // }
-
-        fetch(`/medidas/ultimas/`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarMedia(resposta);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
+        fetch(`/medidas/ultimas`, {
+            method: "GET",
         })
-            .catch(function (error) {
-                console.error(`Erro na obtenção da média de pontos ${error.message}`);
+            .then(function (resposta) {
+                console.log(resposta);
+                resposta.json().then((funcaoMedia) => {
+                    funcaoMedia.forEach((Pokemon) => {
+                        boxMediaPontosB.innerHTML += `${Pokemon.Media}`,
+                            boxMediaPontosC.innerHTML += `${Pokemon.Media}`,
+                            boxMediaPontosS.innerHTML += `${Pokemon.Media}`,
+                            mediaPontos = Pokemon.Media,
+                            plotarMedia();
+                    });
+                });
             });
+
     }
 
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarMedia(resposta) {
+    function plotarMedia() {
 
-        console.log('iniciando plotagem da média...');
-
-        // // Criando estrutura para plotar gráfico - labels
-        let pontuacaoMedia = [];
-
-        // // Criando estrutura para plotar gráfico - dados
-        // let dados = {
-        //     labels: labels,
-        //     datasets: [{
-        //         label: 'Umidade',
-        //         data: [],
-        //         fill: false,
-        //         borderColor: 'rgb(75, 192, 192)',
-        //         tension: 0.1
-        //     },
-        //     {
-        //         label: 'Temperatura',
-        //         data: [],
-        //         fill: false,
-        //         borderColor: 'rgb(199, 52, 52)',
-        //         tension: 0.1
-        //     }]
-        // };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterMediaPontos" e passados para "plotarMedia":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            pontuacaoMedia.push(registro);
-
-            // dados.datasets[0].data.push(registro.umidade);
-            // dados.datasets[1].data.push(registro.temperatura);
-        }
-        boxMediaPontosB.innerHTML += `${pontuacaoMedia.value}`;
-        boxMediaPontosC.innerHTML += `${pontuacaoMedia.value}`;
-        boxMediaPontosS.innerHTML += `${pontuacaoMedia.value}`;
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(pontuacaoMedia)
-        console.log('Dados:')
-        console.log(pontuacaoMedia.datasets)
-        console.log('----------------------------------------------')
-
-        // // Criando estrutura para plotar gráfico - config
-        // const config = {
-        //     type: 'line',
-        //     data: dados,
-        // };
-
-        // // Adicionando gráfico criado em div na tela
-        // let myChart = new Chart(
-        //     document.getElementById(`myChartCanvas${idAquario}`),
-        //     config
-        // );
-
-        // setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-
-        if (pontosUsuario > pontuacaoMedia) {
+        if (pontosUsuario > mediaPontos) {
             boxRespostaB.innerHTML = `<span style='color: green;'>Sua pontuação está acima da média!<br> Parabéns!</span>`
             boxRespostaC.innerHTML = `<span style='color: green;'>Sua pontuação está acima da média!<br> Parabéns!</span>`
             boxRespostaS.innerHTML = `<span style='color: green;'>Sua pontuação está acima da média!<br> Parabéns!</span>`
-        } else if (pontosUsuario == pontuacaoMedia) {
+        } else if (pontosUsuario == mediaPontos) {
             boxRespostaB.innerHTML = `<span style='color: blue;'>Sua pontuação está na média!<br> Parabéns</span>`
             boxRespostaC.innerHTML = `<span style='color: blue;'>Sua pontuação está na média!<br> Parabéns</span>`
             boxRespostaS.innerHTML = `<span style='color: blue;'>Sua pontuação está na média!<br> Parabéns</span>`
@@ -1367,8 +1312,6 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 paisServer: paisVar,
                 estadoServer: estadoVar,
                 cidadeServer: cidadeVar,

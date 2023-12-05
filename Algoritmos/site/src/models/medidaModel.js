@@ -17,15 +17,15 @@ function buscarUltimasMedidas() {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idUsuario) {
+function buscarMedidasEmTempoReal(idUsuario, idPokemon) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `UPDATE Usuario SET fkPokemon = '1' WHERE id = '${idUsuario}';`;
+        instrucaoSql = `UPDATE Usuario SET fkPokemon = '${idPokemon}' WHERE id = '${idUsuario}';`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `UPDATE Usuario SET fkPokemon = '1' WHERE id = '${idUsuario}';`;
+        instrucaoSql = `UPDATE Usuario SET fkPokemon = '${idPokemon}' WHERE id = '${idUsuario}';`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -40,14 +40,16 @@ function buscarDadosGrafico() {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1';
-        SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2';
-        SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3';`;
+        instrucaoSql = `SELECT 
+		(SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1') AS 'BulbasaurResultado',
+        (SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2') AS 'CharmanderResultado',
+        (SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3') AS 'SquirtleResultado' FROM Usuario;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1';
-        SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2';
-        SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3';`;
+        instrucaoSql = `SELECT 
+		(SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1') AS 'BulbasaurResultado',
+        (SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2') AS 'CharmanderResultado',
+        (SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3') AS 'SquirtleResultado' FROM Usuario;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

@@ -49,3 +49,30 @@ fkUsuario INT NOT NULL UNIQUE,
 CONSTRAINT fkUsuarioEndereco FOREIGN KEY (fkUsuario)
 	REFERENCES Usuario(id)
 );
+
+-- Comandos SQL
+
+INSERT INTO Pokemon VALUES
+	(DEFAULT, 'Bulbasaur', 'Planta', 'Veneno'),
+    (DEFAULT, 'Charmander', 'Fogo', NULL),
+    (DEFAULT, 'Squirtle', 'Água', NULL);
+
+SELECT * FROM Usuario;
+SELECT * FROM Pokemon;
+SELECT * FROM Pontos;
+SELECT * FROM Endereco;
+
+SELECT 
+	(SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1') AS 'BulbasaurResultado',
+	(SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2') AS 'CharmanderResultado',
+	(SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3') AS 'SquirtleResultado' FROM Usuario;
+
+
+INSERT INTO Usuario VALUES
+	(Default, '1', '1', '1', '1', '1'),
+    (Default, '2', '2', '2', '2', '1'),
+    (Default, '3', '3', '3', '3', '2'),
+    (Default, '4', '4', '4', '4', '3'),
+    (Default, '5', '5', '5', '5', '2');
+
+DROP DATABASE pokemon;

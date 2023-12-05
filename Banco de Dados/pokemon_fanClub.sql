@@ -3,7 +3,6 @@
 CREATE DATABASE Pokemon;
 USE Pokemon;
 
-DROP DATABASE Pokemon;
 -- Criação das tabelas
 
 CREATE TABLE Pokemon (
@@ -59,10 +58,17 @@ SELECT * FROM Pokemon;
 SELECT * FROM Pontos;
 SELECT * FROM Endereco;
 
-DROP DATABASE pokemon;
+SELECT 
+	(SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1') AS 'BulbasaurResultado',
+	(SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2') AS 'CharmanderResultado',
+	(SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3') AS 'SquirtleResultado' FROM Usuario;
+
 
 INSERT INTO Usuario VALUES
-	('1', '1', '1', '1', '1');
+	(Default, '1', '1', '1', '1', '1'),
+    (Default, '2', '2', '2', '2', '1'),
+    (Default, '3', '3', '3', '3', '2'),
+    (Default, '4', '4', '4', '4', '3'),
+    (Default, '5', '5', '5', '5', '2');
 
-INSERT INTO Pontos (pontuacao, fkUsuario) VALUES
-	('1000', '1');
+DROP DATABASE pokemon;
