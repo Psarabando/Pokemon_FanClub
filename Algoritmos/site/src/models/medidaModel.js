@@ -50,7 +50,8 @@ function buscarDadosGrafico() {
 		(SELECT COUNT(fkPokemon) AS 'Bulbasaur' FROM Usuario WHERE fkPokemon = '1') AS 'BulbasaurResultado',
         (SELECT COUNT(fkPokemon) AS 'Charmander' FROM Usuario WHERE fkPokemon = '2') AS 'CharmanderResultado',
         (SELECT COUNT(fkPokemon) AS 'Squirtle' FROM Usuario WHERE fkPokemon = '3') AS 'SquirtleResultado' FROM Usuario;`;
-    } else {
+    }
+     else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
     }

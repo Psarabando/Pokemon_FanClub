@@ -69,10 +69,11 @@ SELECT
 
 
 INSERT INTO Usuario VALUES
-	(Default, '1', '1', '1', '1', '1'),
-    (Default, '2', '2', '2', '2', '1'),
-    (Default, '3', '3', '3', '3', '2'),
-    (Default, '4', '4', '4', '4', '3'),
-    (Default, '5', '5', '5', '5', '2');
+	(Default, 'Pedro', '18', 'pedro.saraujo@sptech.school', '130505', '1'),
+    (Default, 'Rafael', '13', 'sarabando.rafa@gmail.com', '777777', '2'),
+    (Default, 'Lorenzo', '19', 'lorenzo.begliomini@gmail.com', '666666', '2'),
+    (Default, 'Guilherme', '18', 'guilhermeConstantinov', '333333', '2'),
+    (Default, 'Fernanda', '35', 'fersarabando@gmail.com', '555555', '3'),
+    (Default, 'Anna', '19', 'annaBeatriz@gmail.com', '444444', '3');
 
 DROP DATABASE pokemon;
