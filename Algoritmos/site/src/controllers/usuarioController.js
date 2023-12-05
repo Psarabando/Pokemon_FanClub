@@ -4,7 +4,6 @@ var usuarioModel = require("../models/usuarioModel");
 function autenticar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    // var idade = req.body.idadeServer;
 
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
@@ -84,7 +83,80 @@ function cadastrar(req, res) {
     }
 }
 
+function enviarPesquisa(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var pais = req.body.paisServer;
+    var estado = req.body.estadoServer;
+    var cidade = req.body.cidadeServer;
+    var bairro = req.body.bairroServer;
+    var fkUsuario = req.body.idUsuarioServer;
+
+    // Faça as validações dos valores
+    if (pais == undefined) {
+        res.status(400).send("O pais selecionado está undefined!");
+    } else if (estado == undefined) {
+        res.status(400).send("O estado selecionado está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("O cidade selecionado está undefined!");
+    } else if (bairro == undefined) {
+        res.status(400).send("O bairro selecionado está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("O fkUsuario está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.enviarPesquisa(pais, estado, cidade, bairro, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a pesquisa! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function cadastrarPontos(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var pontuacao = req.body.pontuacaoServer;
+    var fkUsuario = req.body.idUsuarioServer;
+
+    // Faça as validações dos valores
+    if (pontuacao == undefined) {
+        res.status(400).send("O pontuacao selecionado está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("O fkUsuario está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarPontos(pontuacao, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro dos pontos! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    enviarPesquisa,
+    cadastrarPontos
 }

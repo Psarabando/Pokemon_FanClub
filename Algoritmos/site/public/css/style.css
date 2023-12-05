@@ -215,12 +215,13 @@ body {
 
 .cardSobre .box {
     width: 35%;
+    padding: 5px;
     height: 100%;
     display: flex;
     text-align: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .cardSobre .boxCentral {
@@ -229,7 +230,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px #214CCE solid;
+}
+
+.texto {
+    font-size: 20px;
 }
 
 /* Tela de Login */
@@ -338,39 +342,6 @@ body {
 }
 
 .cadastrar {
-    width: 30%;
-    height: 30px;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    color: #F0F8FF;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bolder;
-    background-color: #214CCE;
-}
-
-.cardPesquisa {
-    width: 25%;
-    height: 70%;
-    display: none;
-    align-items: center;
-    border-radius: 20px;
-    flex-direction: column;
-    background-color: #F0F8FF;
-    border: double 10px black;
-}
-
-.cardPesquisa .campo {
-    width: 80%;
-    height: 17%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.enviarPesquisa {
     width: 30%;
     height: 30px;
     border: none;

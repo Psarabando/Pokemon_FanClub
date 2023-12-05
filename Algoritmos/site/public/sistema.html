@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,26 @@
     <title>Pokémon FanClub | Sistema</title>
     <link rel="stylesheet" href="css/sistema.css">
     <link rel="icon" href="midias/pokeball.png">
-    <script src=""></script>
+    <script src="./js/sessao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
-<body>
 
-    <!-- Container aonde será escolhido o pokémon do usuário -->
+<body onload="validarSessao()">
+
+    <!-- Container aonde terá o botão para voltar para o site -->
 
     <div class="introducao">
         <div class="header">
-            <a href="index.html">
-                <div class="voltar">
-                    <img src="https://cdn-icons-png.flaticon.com/128/271/271218.png" style="height: 30px;">
-                    Voltar
-                </div>
-            </a>
+            <div class="voltar" onclick="limparSessao()">
+                <img src="https://cdn-icons-png.flaticon.com/128/271/271218.png" style="height: 30px;">
+                Voltar
+            </div>
         </div>
+
+        <!-- Container aonde será escolhido o pokémon do usuário -->
+
         <div class="cardIntroducao">
             <div class="acima">
                 <div class="boxHorizontal">
@@ -35,7 +38,8 @@
             <div class="abaixo">
 
                 <div class="boxVertical">
-                    <img src="https://archives.bulbagarden.net/media/upload/f/fb/0001Bulbasaur.png" style="width: 200px;height: 200px;">
+                    <img src="https://archives.bulbagarden.net/media/upload/f/fb/0001Bulbasaur.png"
+                        style="width: 200px;height: 200px;">
                     <span class="tituloPokemon">Bulbasaur Nº 001</span>
                     <span class="descricao">Pokémon Semente</span>
                     <div class="tipagem">
@@ -43,190 +47,199 @@
                         <div class="boxVeneno">Veneno</div>
                     </div>
 
-                    <a href="#containerB" class="buttonEscolher"><button id="button_bulbasaur" class="button_bulbasaur" onclick="escolherBulbasaur()">Eu escolho você!</button></a>
+                    <a href="#containerB" class="buttonEscolher"><button id="button_bulbasaur" class="button_bulbasaur"
+                            onclick="escolherBulbasaur()">Eu escolho você!</button></a>
                 </div>
 
                 <div class="boxVertical">
-                    <img src="https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/250px-0004Charmander.png" style="width: 200px; height: 200px;">
+                    <img src="https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/250px-0004Charmander.png"
+                        style="width: 200px; height: 200px;">
                     <span class="tituloPokemon">Charmander Nº 004</span>
                     <span class="descricao">Pokémon Lagarto</span>
                     <div class="tipagem">
                         <div class="boxFogo">Fogo</div>
                     </div>
-                    <a href="#containerC" class="buttonEscolher"><button id="button_charmander" class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button></a>
+                    <a href="#containerC" class="buttonEscolher"><button id="button_charmander"
+                            class="button_charmander" onclick="escolherCharmander()">Eu escolho você!</button></a>
                 </div>
 
                 <div class="boxVertical">
-                    <img src="https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/250px-0007Squirtle.png" style="width: 200px; height: 200px;">
+                    <img src="https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/250px-0007Squirtle.png"
+                        style="width: 200px; height: 200px;">
                     <span class="tituloPokemon">Squirtle Nº 007</span>
                     <span class="descricao">Pokémon Tartaruga Pequena</span>
                     <div class="tipagem">
                         <div class="boxAgua">Água</div>
                     </div>
-                    <a href="#containerS" class="buttonEscolher"><button id="button_squirtle" class="button_squirtle" onclick="escolherSquirtle()">Eu escolho você!</button></a>
+                    <a href="#containerS" class="buttonEscolher"><button id="button_squirtle" class="button_squirtle"
+                            onclick="escolherSquirtle()">Eu escolho você!</button></a>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- Container de batalha caso o escolhido seja o Bulbasaur -->
+    <!-- Container de batalha caso o escolhido seja o Bulbasaur -->
 
-<div class="containerB" id="containerB">
+    <div class="containerB" id="containerB">
 
-    <div class="telaBatalha">
-        <div class="telaLuta">
-            <div class="ladoEsquerdo">
-                <div class="vidaInimigo">
-                    <div class="caixa">
-                        Rattata Level: 5
-                        <div class="hp">
-                            HP:<div class="hpInimigoBulbasaur" id="hpInimigoBulbasaur"></div>
+        <div class="telaBatalha">
+            <div class="telaLuta">
+                <div class="ladoEsquerdo">
+                    <div class="vidaInimigo">
+                        <div class="caixa">
+                            Rattata Level: 5
+                            <div class="hp">
+                                HP:<div class="hpInimigoBulbasaur" id="hpInimigoBulbasaur"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pokemon">
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif"
+                            style="width: 200px; height: 200px;">
+                    </div>
+                </div>
+                <div class="ladoDireito">
+                    <div class="inimigo">
+                        <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style="width: 200px;">
+                    </div>
+                    <div class="vidaPokemon">
+                        <div class="caixa">
+                            Bulbasaur Level: 5
+                            <div class="hp">
+                                HP:<div class="hpBulbasaur" id="hpBulbasaur"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="pokemon">
-                    <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif" style="width: 200px; height: 200px;">
-                </div>
             </div>
-            <div class="ladoDireito">
-                <div class="inimigo">
-                    <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style= "width: 200px;">
-                </div>
-                <div class="vidaPokemon">
-                    <div class="caixa">
-                        Bulbasaur Level: 5
-                        <div class="hp">
-                            HP:<div class="hpBulbasaur" id="hpBulbasaur"></div>
-                        </div>
+
+            <div class="hub">
+                <div class="ataques">
+                    <div class="box">
+                        <button class="buttonAtaque" id="tackle_b" onclick="tackle_b()">Tackle</button>
+                        <button class="buttonAtaque" id="growl_b" onclick="growl_b()">Growl</button>
+                    </div>
+                    <div class="box">
+                        <button class="buttonAtaque" id="absorb_b" onclick="absorb_b()">Absorb</button>
                     </div>
                 </div>
+                <div class="descricaoAtaque" id="div_descricao_bulbasaur"></div>
+                <div class="historico" id="div_historico_bulbasaur"></div>
             </div>
         </div>
 
-        <div class="hub">
-            <div class="ataques">
-                <div class="box">
-                    <button class="buttonAtaque" id="tackle_b" onclick="tackle_b()">Tackle</button>
-                    <button class="buttonAtaque" id="growl_b" onclick="growl_b()">Growl</button>
-                </div>
-                <div class="box">
-                    <button class="buttonAtaque" id="absorb_b" onclick="absorb_b()">Absorb</button>
-                </div>
-            </div>
-            <div class="descricaoAtaque" id="div_descricao_bulbasaur"></div>
-            <div class="historico" id="div_historico_bulbasaur"></div>
-        </div>
     </div>
 
-</div>
+    <!-- Container de batalha caso o escolhido seja o Charmander -->
 
-<!-- Container de batalha caso o escolhido seja o Charmander -->
+    <div class="containerC" id="containerC">
 
-<div class="containerC" id="containerC">
-
-    <div class="telaBatalha">
-        <div class="telaLuta">
-            <div class="ladoEsquerdo">
-                <div class="vidaInimigo">
-                    <div class="caixa">
-                        Rattata Level: 5
-                        <div class="hp">
-                            HP:<div class="hpInimigoCharmander" id="hpInimigoCharmander"></div>
+        <div class="telaBatalha">
+            <div class="telaLuta">
+                <div class="ladoEsquerdo">
+                    <div class="vidaInimigo">
+                        <div class="caixa">
+                            Rattata Level: 5
+                            <div class="hp">
+                                HP:<div class="hpInimigoCharmander" id="hpInimigoCharmander"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pokemon">
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif"
+                            style="width: 200px; height: 200px;">
+                    </div>
+                </div>
+                <div class="ladoDireito">
+                    <div class="inimigo">
+                        <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style="width: 200px;">
+                    </div>
+                    <div class="vidaPokemon">
+                        <div class="caixa">
+                            Charmander Level: 5
+                            <div class="hp">
+                                HP:<div class="hpCharmander" id="hpCharmander"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="pokemon">
-                    <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif" style="width: 200px; height: 200px;">
-                </div>
             </div>
-            <div class="ladoDireito">
-                <div class="inimigo">
-                    <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style= "width: 200px;">
-                </div>
-                <div class="vidaPokemon">
-                    <div class="caixa">
-                        Charmander Level: 5
-                        <div class="hp">
-                            HP:<div class="hpCharmander" id="hpCharmander"></div>
-                        </div>
+
+            <div class="hub">
+                <div class="ataques">
+                    <div class="box">
+                        <button class="buttonAtaque" onclick="scratch_c()">Scratch</button>
+                        <button class="buttonAtaque" onclick="growl_c()">Growl</button>
+                    </div>
+                    <div class="box">
+                        <button class="buttonAtaque" onclick="ember_c()">Ember</button>
                     </div>
                 </div>
+                <div class="descricaoAtaque" id="div_descricao_charmander"></div>
+                <div class="historico" id="div_historico_charmander"></div>
             </div>
         </div>
 
-        <div class="hub">
-            <div class="ataques">
-                <div class="box">
-                    <button class="buttonAtaque" onclick="scratch_c()">Scratch</button>
-                    <button class="buttonAtaque" onclick="growl_c()">Growl</button>
-                </div>
-                <div class="box">
-                    <button class="buttonAtaque" onclick="ember_c()">Ember</button>
-                </div>
-            </div>
-            <div class="descricaoAtaque" id="div_descricao_charmander"></div>
-            <div class="historico" id="div_historico_charmander"></div>
-        </div>
     </div>
 
-</div>
+    <!-- Container de batalha caso o escolhido seja o Squirtle -->
 
-<!-- Container de batalha caso o escolhido seja o Squirtle -->
+    <div class="containerS" id="containerS">
 
-<div class="containerS" id="containerS">
-
-    <div class="telaBatalha">
-        <div class="telaLuta">
-            <div class="ladoEsquerdo">
-                <div class="vidaInimigo">
-                    <div class="caixa">
-                        Rattata Level: 5
-                        <div class="hp">
-                            HP:<div class="hpInimigoSquirtle" id="hpInimigoSquirtle"></div>
+        <div class="telaBatalha">
+            <div class="telaLuta">
+                <div class="ladoEsquerdo">
+                    <div class="vidaInimigo">
+                        <div class="caixa">
+                            Rattata Level: 5
+                            <div class="hp">
+                                HP:<div class="hpInimigoSquirtle" id="hpInimigoSquirtle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pokemon">
+                        <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif"
+                            style="width: 200px; height: 200px;">
+                    </div>
+                </div>
+                <div class="ladoDireito">
+                    <div class="inimigo">
+                        <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style="width: 200px;">
+                    </div>
+                    <div class="vidaPokemon">
+                        <div class="caixa">
+                            Squirtle Level: 5
+                            <div class="hp">
+                                HP:<div class="hpSquirtle" id="hpSquirtle"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="pokemon">
-                    <img src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif" style="width: 200px; height: 200px;">
-                </div>
             </div>
-            <div class="ladoDireito">
-                <div class="inimigo">
-                    <img src="https://64.media.tumblr.com/tumblr_mb7ajc09St1rfjowdo1_500.gif" style= "width: 200px;">
-                </div>
-                <div class="vidaPokemon">
-                    <div class="caixa">
-                        Squirtle Level: 5
-                        <div class="hp">
-                            HP:<div class="hpSquirtle" id="hpSquirtle"></div>
-                        </div>
+
+            <div class="hub">
+                <div class="ataques">
+                    <div class="box">
+                        <button class="buttonAtaque" onclick="tackle_s()">Tackle</button>
+                        <button class="buttonAtaque" onclick="tailWhip_s()">Tail Whip</button>
+                    </div>
+                    <div class="box">
+                        <button class="buttonAtaque" onclick="waterPulse_s()">Water Pulse</button>
                     </div>
                 </div>
+                <div class="descricaoAtaque" id="div_descricao_squirtle"></div>
+                <div class="historico" id="div_historico_squirtle"></div>
             </div>
         </div>
 
-        <div class="hub">
-            <div class="ataques">
-                <div class="box">
-                    <button class="buttonAtaque" onclick="tackle_s()">Tackle</button>
-                    <button class="buttonAtaque" onclick="tailWhip_s()">Tail Whip</button>
-                </div>
-                <div class="box">
-                    <button class="buttonAtaque" onclick="waterPulse_s()">Water Pulse</button>
-                </div>
-            </div>
-            <div class="descricaoAtaque" id="div_descricao_squirtle"></div>
-            <div class="historico" id="div_historico_squirtle"></div>
-        </div>
     </div>
 
-</div>
-
-<!-- Container onde será mostrado as dashboards pós batalha -->
+    <!-- Container onde será mostrado as dashboards pós batalha -->
 
     <div class="containerResultadosB" id="containerResultadosB">
         <div class="boxResultado">
-            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
+            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img
+                    src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
         </div>
 
         <div class="cardGraficos">
@@ -239,22 +252,22 @@
             <div class="boxGrafico">
                 <div class="boxTituloSecundario">Comparação de pontos</div>
                 <div class="boxCompararPontos">
-                <div class="cardDados">
-                    <div class="cardPontos">
-                        <div class="cardTop">Sua pontuação</div>
-                        <div class="cardMid">
-                            <div class="boxPontosUsuario" id="boxPontosUsuarioB"></div>
+                    <div class="cardDados">
+                        <div class="cardPontos">
+                            <div class="cardTop">Sua pontuação</div>
+                            <div class="cardMid">
+                                <div class="boxPontosUsuario" id="boxPontosUsuarioB"></div>
+                            </div>
+                        </div>
+                        <div class="cardPontos">
+                            <div class="cardTop">Pontuação média</div>
+                            <div class="cardMid">
+                                <div class="boxMediaPontos" id="boxMediaPontosB"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="cardPontos">
-                        <div class="cardTop">Pontuação média</div>
-                        <div class="cardMid">
-                            <div class="boxMediaPontos"></div>
-                        </div>
-                    </div>
-                </div>
                     <div class="cardBottom">
-                        <div class="boxResposta"></div>
+                        <div class="boxResposta" id="boxRespostaB"></div>
                     </div>
                 </div>
             </div>
@@ -264,7 +277,8 @@
 
     <div class="containerResultadosC" id="containerResultadosC">
         <div class="boxResultado">
-            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
+            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img
+                    src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
         </div>
 
         <div class="cardGraficos">
@@ -277,22 +291,22 @@
             <div class="boxGrafico">
                 <div class="boxTituloSecundario">Comparação de pontos</div>
                 <div class="boxCompararPontos">
-                <div class="cardDados">
-                    <div class="cardPontos">
-                        <div class="cardTop">Sua pontuação</div>
-                        <div class="cardMid">
-                            <div class="boxPontosUsuario" id="boxPontosUsuarioC"></div>
+                    <div class="cardDados">
+                        <div class="cardPontos">
+                            <div class="cardTop">Sua pontuação</div>
+                            <div class="cardMid">
+                                <div class="boxPontosUsuario" id="boxPontosUsuarioC"></div>
+                            </div>
+                        </div>
+                        <div class="cardPontos">
+                            <div class="cardTop">Pontuação média</div>
+                            <div class="cardMid">
+                                <div class="boxMediaPontos" id="boxMediaPontosC"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="cardPontos">
-                        <div class="cardTop">Pontuação média</div>
-                        <div class="cardMid">
-                            <div class="boxMediaPontos"></div>
-                        </div>
-                    </div>
-                </div>
                     <div class="cardBottom">
-                        <div class="boxResposta"></div>
+                        <div class="boxResposta" id="boxRespostaC"></div>
                     </div>
                 </div>
             </div>
@@ -302,7 +316,8 @@
 
     <div class="containerResultadosS" id="containerResultadosS">
         <div class="boxResultado">
-            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
+            <div class="boxTitulo"><img src="./midias/pokeball.png" style="height:35px; width:35px;">Resultados<img
+                    src="./midias/pokeball.png" style="height:35px; width:35px;"></div>
         </div>
 
         <div class="cardGraficos">
@@ -315,54 +330,118 @@
             <div class="boxGrafico">
                 <div class="boxTituloSecundario">Comparação de pontos</div>
                 <div class="boxCompararPontos">
-                <div class="cardDados">
-                    <div class="cardPontos">
-                        <div class="cardTop">Sua pontuação</div>
-                        <div class="cardMid">
-                            <div class="boxPontosUsuario" id="boxPontosUsuarioS"></div>
+                    <div class="cardDados">
+                        <div class="cardPontos">
+                            <div class="cardTop">Sua pontuação</div>
+                            <div class="cardMid">
+                                <div class="boxPontosUsuario" id="boxPontosUsuarioS"></div>
+                            </div>
+                        </div>
+                        <div class="cardPontos">
+                            <div class="cardTop">Pontuação média</div>
+                            <div class="cardMid">
+                                <div class="boxMediaPontos" id="boxMediaPontosS"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="cardPontos">
-                        <div class="cardTop">Pontuação média</div>
-                        <div class="cardMid">
-                            <div class="boxMediaPontos"></div>
-                        </div>
-                    </div>
-                </div>
                     <div class="cardBottom">
-                        <div class="boxResposta"></div>
+                        <div class="boxResposta" id="boxRespostaS"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="containerPesquisa" id="containerPesquisa">
+        <div class="cardPesquisa" id="cardPesquisa">
+            <span class="titulo">Pesquisa</span>
+            <div class="campo">
+                <span class="span">País:</span>
+                <input type="text" class="input" id="pais_input" placeholder="País">
+            </div>
+            <div class="campo">
+                <span class="span">Estado:</span>
+                <input type="text" class="input" id="estado_input" placeholder="Estado">
+            </div>
+            <div class="campo">
+                <span class="span">Cidade:</span>
+                <input type="text" class="input" id="cidade_input" placeholder="Cidade">
+            </div>
+            <div class="campo">
+                <span class="span">Bairro:</span>
+                <input type="text" class="input" id="bairro_input" placeholder="Seu bairro">
+            </div>
+            <div class="mensagemErro" id="mensagemAviso_Pesquisa"></div>
+            <div class="campo">
+                <button class="enviarPesquisa" onclick="enviarPesquisa()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
 
 <script>
 
+    var idUsuario = sessionStorage.ID_USUARIO;
+
     // Seleção e cadastro de pokémon
 
     function escolherBulbasaur() {
-        containerB.style.display='flex';
+        containerB.style.display = 'flex';
         document.getElementById("button_squirtle").disabled = true;
         document.getElementById("button_charmander").disabled = true;
+
+
+        // Enviando o valor da nova input
+        fetch("/medidas/cadastrarPokemon", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idUsuarioServer: idUsuario,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    // setTimeout(() => {
+                    //     window.location = "./login.html";
+                    // }, "1000");
+
+                    // limparFormulario();
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        return false;
     }
 
     function escolherCharmander() {
-        containerC.style.display='flex';
+        containerC.style.display = 'flex';
         document.getElementById("button_squirtle").disabled = true;
         document.getElementById("button_bulbasaur").disabled = true;
     }
 
     function escolherSquirtle() {
-        containerS.style.display='flex';
+        containerS.style.display = 'flex';
         document.getElementById("button_bulbasaur").disabled = true;
         document.getElementById("button_charmander").disabled = true;
     }
 
-    
+
     // Script do combate, contendo as funções de ataque do Bulbasaur, Charmander, Squirtle e Rattata
 
     // Ataques do Bulbasaur
@@ -372,10 +451,10 @@
     var efeitoGrowl = false;
 
     function tackle_b() {
-        
+
         var mensagem = 'Bulbasaur usou Tackle!<br>';
         var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
-        
+
         if (chanceCritico == 8) {
             var dano = 40;
             vidaInimigo_bulbasaur -= dano;
@@ -386,12 +465,12 @@
         }
 
         hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
-        
+
         div_descricao_bulbasaur.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
         div_historico_bulbasaur.innerHTML += mensagem;
 
         turnoInimigo_bulbasaur();
-        
+
     }
 
     function growl_b() {
@@ -408,7 +487,7 @@
 
         div_descricao_bulbasaur.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
 
-        
+
     }
 
     function absorb_b() {
@@ -418,24 +497,24 @@
         div_descricao_bulbasaur.innerHTML = `<b>Tipo/Planta</b><br>Absorve a vida do oponente causando dano e restaurando parte da vida do usuário`;
         setTimeout(() => {
 
-                var dano = 20;
-                vidaInimigo_bulbasaur -= dano;
-                hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
-            
-                if (vidaBulbasaur < 200){
-                    var cura = 10;
-                    vidaBulbasaur += cura;
-                    hpBulbasaur.style.width = `${vidaBulbasaur}px`
-                }
+            var dano = 20;
+            vidaInimigo_bulbasaur -= dano;
+            hpInimigoBulbasaur.style.width = `${vidaInimigo_bulbasaur}px`;
+
+            if (vidaBulbasaur < 200) {
+                var cura = 10;
+                vidaBulbasaur += cura;
+                hpBulbasaur.style.width = `${vidaBulbasaur}px`
+            }
         }, "1000");
-        
+
         turnoInimigo_bulbasaur();
-        
+
     }
 
-    
+
     // Ataques do adversário (Bulbasaur)
-    
+
     var numeroAcertos = 0;
     var acertosFurySwipes = [];
     var efeitoTailWhipInimigo = false;
@@ -444,11 +523,11 @@
 
         var mensagem = '';
         var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
-        
+
         setTimeout(() => {
 
             if (ataqueInimigo == 1) {
-    
+
                 if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
                     var dano = 15;
                     vidaBulbasaur -= dano;
@@ -469,10 +548,10 @@
                     vidaBulbasaur -= dano;
                     hpBulbasaur.style.width = `${vidaBulbasaur}px`;
                     mensagem = 'Rattata atacou usando Tackle!<br><br>';
-                } 
-    
+                }
+
             } else if (ataqueInimigo == 2) {
-    
+
                 if (efeitoTailWhipInimigo == false) {
                     efeitoTailWhipInimigo = true;
                     mensagem = `Rattata atacou usando Tail Whip!<br>
@@ -481,14 +560,14 @@
                     mensagem = `Rattata utilizou novamente Tail Whip!<br>
                     O ataque não surtiu efeito em seu pokémon!<br><br>`;
                 }
-    
+
             } else if (ataqueInimigo == 3) {
-    
+
                 for (i = 0; i < 5; i++) {
                     var acertoAtual = parseInt(Math.random() * (1 + 1));
                     acertosFurySwipes.push(acertoAtual);
                 }
-                
+
                 for (i = 0; i < 5; i++) {
                     var acertoAtual = acertosFurySwipes[i];
                     if (acertoAtual == 1) {
@@ -500,20 +579,20 @@
             }
 
             div_historico_bulbasaur.innerHTML += mensagem;
-            
+
             var dano = (numeroAcertos * 10);
             vidaBulbasaur -= dano;
             hpBulbasaur.style.width = `${vidaBulbasaur}px`;
-            
+
             numeroAcertos = 0;
             acertosFurySwipes = [];
 
         }, "2000");
-        
+
         if (verificadoB == false) {
-        setTimeout(() => {
-        verificarB();
-        }, "3000");
+            setTimeout(() => {
+                verificarB();
+            }, "3000");
         }
     }
 
@@ -525,50 +604,50 @@
 
     function scratch_c() {
 
-    var mensagem = 'Charmander usou Scratch!<br>';
-    var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
-    
-    if (chanceCritico == 8) {
-        var dano = 40;
-        vidaInimigo_charmander -= dano;
-        mensagem += `Foi um golpe com acerto crítico!<br>`
-    } else {
-        var dano = 20;
-        vidaInimigo_charmander -= dano;
-    }
+        var mensagem = 'Charmander usou Scratch!<br>';
+        var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
 
-    setTimeout(() => {
-    hpInimigoCharmander.style.width = `${vidaInimigo_charmander}px`;
-    }, "1000");
+        if (chanceCritico == 8) {
+            var dano = 40;
+            vidaInimigo_charmander -= dano;
+            mensagem += `Foi um golpe com acerto crítico!<br>`
+        } else {
+            var dano = 20;
+            vidaInimigo_charmander -= dano;
+        }
 
-    div_historico_charmander.innerHTML += mensagem;
-    div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
+        setTimeout(() => {
+            hpInimigoCharmander.style.width = `${vidaInimigo_charmander}px`;
+        }, "1000");
 
-    turnoInimigo_charmander();
-    
+        div_historico_charmander.innerHTML += mensagem;
+        div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
+
+        turnoInimigo_charmander();
+
     }
 
     function growl_c() {
 
-    if (efeitoGrowl == false) {
-    var mensagem = 'Charmander usou Growl!<br> O ataque de Rattata foi reduzido!<br>';
-    div_historico_charmander.innerHTML += mensagem;
-    efeitoGrowl = true;
-    turnoInimigo_charmander();
-    } else {
-    var mensagem = 'Charmander já utilizou Growl, ele não pode utilizar novamente<br>';
-    div_historico_charmander.innerHTML += mensagem;
-    }
-    div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
+        if (efeitoGrowl == false) {
+            var mensagem = 'Charmander usou Growl!<br> O ataque de Rattata foi reduzido!<br>';
+            div_historico_charmander.innerHTML += mensagem;
+            efeitoGrowl = true;
+            turnoInimigo_charmander();
+        } else {
+            var mensagem = 'Charmander já utilizou Growl, ele não pode utilizar novamente<br>';
+            div_historico_charmander.innerHTML += mensagem;
+        }
+        div_descricao_charmander.innerHTML = `<b>Tipo/Normal</b><br>Reduz o ataque do oponente. Não pode ser usado mais de uma vez`;
 
-    
+
     }
 
     function ember_c() {
 
         var mensagem = 'Charmander usou Ember!<br>';
         var chanceQueimadura = 1 + parseInt(Math.random() * (3 + 1));
-        
+
         if (chanceQueimadura == 4) {
             var dano = 30;
             vidaInimigo_charmander -= dano;
@@ -577,16 +656,16 @@
             var dano = 20;
             vidaInimigo_charmander -= dano;
         }
-        
+
         setTimeout(() => {
             hpInimigoCharmander.style.width = `${vidaInimigo_charmander}px`;
         }, "1000");
-        
+
         div_historico_charmander.innerHTML += mensagem;
         div_descricao_charmander.innerHTML = `<b>Tipo/Fogo</b><br>Causa dano ao oponente. Possui a chance de queimar o alvo, causando um dano maior`;
 
         turnoInimigo_charmander();
-        
+
     }
 
     // Ataques do adversário (Charmander)
@@ -597,80 +676,80 @@
 
     function turnoInimigo_charmander() {
 
-    var mensagem = '';
-    var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
+        var mensagem = '';
+        var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
 
-    setTimeout(() => {
-
-    if (ataqueInimigo == 1) {
-
-        if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
-            var dano = 15;
-            vidaCharmander -= dano;
-            hpCharmander.style.width = `${vidaCharmander}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == true) {
-            var dano = 10;
-            vidaCharmander -= dano;
-            hpCharmander.style.width = `${vidaCharmander}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else if (efeitoTailWhipInimigo == true && efeitoGrowl == false) {
-            var dano = 20;
-            vidaCharmander -= dano;
-            hpCharmander.style.width = `${vidaCharmander}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else if (efeitoTailWhipInimigo == false && efeitoGrowl == false) {
-            var dano = 15;
-            vidaCharmander -= dano;
-            hpCharmander.style.width = `${vidaCharmander}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } 
-
-    } else if (ataqueInimigo == 2) {
-
-        if (efeitoTailWhipInimigo == false) {
-            efeitoTailWhipInimigo = true;
-            mensagem = `Rattata atacou usando Tail Whip!<br>
-            A defesa de seu pokémon foi reduzida!<br><br>`;
-        } else {
-            mensagem = `Rattata utilizou novamente Tail Whip!<br>
-            O ataque não surtiu efeito em seu pokémon!<br><br>`;
-        }
-
-    } else if (ataqueInimigo == 3) {
-
-        for (i = 0; i < 5; i++) {
-            var acertoAtual = parseInt(Math.random() * (1 + 1));
-            acertosFurySwipes.push(acertoAtual);
-        }
-        
-        for (i = 0; i < 5; i++) {
-            var acertoAtual = acertosFurySwipes[i];
-            if (acertoAtual == 1) {
-                numeroAcertos += 1;
-            }
-        }
-        mensagem = `Rattata atacou usando Fury Swipes!<br>
-        Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
-    }
-
-    div_historico_charmander.innerHTML += mensagem;
-    
-    var dano = (numeroAcertos * 10);
-    vidaCharmander -= dano;
-    hpCharmander.style.width = `${vidaCharmander}px`;
-    
-    numeroAcertos = 0;
-    acertosFurySwipes = [];
-
-    }, "2000");
-
-    if (verificadoC == false) {
         setTimeout(() => {
-            verificarC();
-        }, "3000");
+
+            if (ataqueInimigo == 1) {
+
+                if (efeitoTailWhipInimigo == true && efeitoGrowl == true) {
+                    var dano = 15;
+                    vidaCharmander -= dano;
+                    hpCharmander.style.width = `${vidaCharmander}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else if (efeitoTailWhipInimigo == false && efeitoGrowl == true) {
+                    var dano = 10;
+                    vidaCharmander -= dano;
+                    hpCharmander.style.width = `${vidaCharmander}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else if (efeitoTailWhipInimigo == true && efeitoGrowl == false) {
+                    var dano = 20;
+                    vidaCharmander -= dano;
+                    hpCharmander.style.width = `${vidaCharmander}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else if (efeitoTailWhipInimigo == false && efeitoGrowl == false) {
+                    var dano = 15;
+                    vidaCharmander -= dano;
+                    hpCharmander.style.width = `${vidaCharmander}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                }
+
+            } else if (ataqueInimigo == 2) {
+
+                if (efeitoTailWhipInimigo == false) {
+                    efeitoTailWhipInimigo = true;
+                    mensagem = `Rattata atacou usando Tail Whip!<br>
+            A defesa de seu pokémon foi reduzida!<br><br>`;
+                } else {
+                    mensagem = `Rattata utilizou novamente Tail Whip!<br>
+            O ataque não surtiu efeito em seu pokémon!<br><br>`;
+                }
+
+            } else if (ataqueInimigo == 3) {
+
+                for (i = 0; i < 5; i++) {
+                    var acertoAtual = parseInt(Math.random() * (1 + 1));
+                    acertosFurySwipes.push(acertoAtual);
+                }
+
+                for (i = 0; i < 5; i++) {
+                    var acertoAtual = acertosFurySwipes[i];
+                    if (acertoAtual == 1) {
+                        numeroAcertos += 1;
+                    }
+                }
+                mensagem = `Rattata atacou usando Fury Swipes!<br>
+        Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
+            }
+
+            div_historico_charmander.innerHTML += mensagem;
+
+            var dano = (numeroAcertos * 10);
+            vidaCharmander -= dano;
+            hpCharmander.style.width = `${vidaCharmander}px`;
+
+            numeroAcertos = 0;
+            acertosFurySwipes = [];
+
+        }, "2000");
+
+        if (verificadoC == false) {
+            setTimeout(() => {
+                verificarC();
+            }, "3000");
+        }
     }
-}
 
     // Ataques do Squirtle
 
@@ -683,62 +762,62 @@
         if (efeitoTailWhip == false) {
             var mensagem = 'Squirtle usou Tackle!<br>';
             var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
-        
+
             if (chanceCritico == 8) {
-            var dano = 40;
-            vidaInimigo_squirtle -= dano;
-            mensagem += `Foi um golpe com acerto crítico!<br>`
+                var dano = 40;
+                vidaInimigo_squirtle -= dano;
+                mensagem += `Foi um golpe com acerto crítico!<br>`
             } else {
-            var dano = 20;
-            vidaInimigo_squirtle -= dano;
+                var dano = 20;
+                vidaInimigo_squirtle -= dano;
             }
         } else {
             var mensagem = 'Squirtle usou Tackle!<br>';
             var chanceCritico = 1 + parseInt(Math.random() * (7 + 1));
-        
+
             if (chanceCritico == 8) {
-            var dano = 45;
-            vidaInimigo_squirtle -= dano;
-            mensagem += `Foi um golpe com acerto crítico!<br>`
+                var dano = 45;
+                vidaInimigo_squirtle -= dano;
+                mensagem += `Foi um golpe com acerto crítico!<br>`
             } else {
-            var dano = 25;
-            vidaInimigo_squirtle -= dano;
+                var dano = 25;
+                vidaInimigo_squirtle -= dano;
             }
         }
 
 
-    setTimeout(() => {
-    hpInimigoSquirtle.style.width = `${vidaInimigo_squirtle}px`;
-    }, "1000");
+        setTimeout(() => {
+            hpInimigoSquirtle.style.width = `${vidaInimigo_squirtle}px`;
+        }, "1000");
 
-    div_historico_squirtle.innerHTML += mensagem;
-    div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
+        div_historico_squirtle.innerHTML += mensagem;
+        div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Causa dano sem efeitos adicionais`;
 
-    turnoInimigo_squirtle();
-    
-}
+        turnoInimigo_squirtle();
+
+    }
 
     function tailWhip_s() {
 
-    if (efeitoTailWhip == false) {
-        var mensagem = 'Squirtle atacou usando Tail Whip!<br>A defesa do oponente foi reduzida!<br>';
-        div_historico_squirtle.innerHTML += mensagem;
-        efeitoTailWhip = true;
-        turnoInimigo_squirtle();
-    } else {
-        var mensagem = 'Squirtle já utilizou Tail Whip, ele não pode utilizar novamente<br>';
-        div_historico_squirtle.innerHTML += mensagem;
-    }
+        if (efeitoTailWhip == false) {
+            var mensagem = 'Squirtle atacou usando Tail Whip!<br>A defesa do oponente foi reduzida!<br>';
+            div_historico_squirtle.innerHTML += mensagem;
+            efeitoTailWhip = true;
+            turnoInimigo_squirtle();
+        } else {
+            var mensagem = 'Squirtle já utilizou Tail Whip, ele não pode utilizar novamente<br>';
+            div_historico_squirtle.innerHTML += mensagem;
+        }
         div_descricao_squirtle.innerHTML = `<b>Tipo/Normal</b><br>Reduz a defesa do oponente. Não pode ser usado mais de uma vez`;
 
-        
+
     }
 
     function waterPulse_s() {
 
         var mensagem = 'Squirtle usou Water Pulse!<br>';
         var chanceConfusao = 1 + parseInt(Math.random() * (4 + 1));
-        
+
         if (chanceConfusao == 5) {
             var dano = 30;
             vidaInimigo_squirtle -= dano;
@@ -748,15 +827,15 @@
             vidaInimigo_squirtle -= dano;
             turnoInimigo_squirtle();
         }
-        
+
         setTimeout(() => {
             hpInimigoSquirtle.style.width = `${vidaInimigo_squirtle}px`;
         }, "1000");
-        
+
         div_historico_squirtle.innerHTML += mensagem;
         div_descricao_squirtle.innerHTML = `<b>Tipo/Água</b><br>Causa dano ao oponente. Possuindo a chance do oponente perder o turno`;
 
-        
+
     }
 
     // Ataques do adversário (Squirtle)
@@ -767,70 +846,70 @@
 
     function turnoInimigo_squirtle() {
 
-    var mensagem = '';
-    var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
+        var mensagem = '';
+        var ataqueInimigo = 1 + parseInt(Math.random() * (2 + 1));
 
-    setTimeout(() => {
-
-    if (ataqueInimigo == 1) {
-
-        if (efeitoTailWhipInimigo == true) {
-            var dano = 20;
-            vidaSquirtle -= dano;
-            hpSquirtle.style.width = `${vidaSquirtle}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } else {
-            var dano = 15;
-            vidaSquirtle -= dano;
-            hpSquirtle.style.width = `${vidaSquirtle}px`;
-            mensagem = 'Rattata atacou usando Tackle!<br><br>';
-        } 
-
-    } else if (ataqueInimigo == 2) {
-
-        if (efeitoTailWhipInimigo == false) {
-            efeitoTailWhipInimigo = true;
-            mensagem = `Rattata atacou usando Tail Whip!<br>
-            A defesa de seu pokémon foi reduzida!<br><br>`;
-        } else {
-            mensagem = `Rattata utilizou novamente Tail Whip!<br>
-            O ataque não surtiu efeito em seu pokémon!<br><br>`;
-        }
-
-    } else if (ataqueInimigo == 3) {
-
-        for (i = 0; i < 5; i++) {
-            var acertoAtual = parseInt(Math.random() * (1 + 1));
-            acertosFurySwipes.push(acertoAtual);
-        }
-        
-        for (i = 0; i < 5; i++) {
-            var acertoAtual = acertosFurySwipes[i];
-            if (acertoAtual == 1) {
-                numeroAcertos += 1;
-            }
-        }
-        mensagem = `Rattata atacou usando Fury Swipes!<br>
-        Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
-    }
-
-    div_historico_squirtle.innerHTML += mensagem;
-    
-    var dano = (numeroAcertos * 10);
-    vidaSquirtle -= dano;
-    hpSquirtle.style.width = `${vidaSquirtle}px`;
-    
-    numeroAcertos = 0;
-    acertosFurySwipes = [];
-
-    }, "2000");
-
-    if (verificadoS == false) {
         setTimeout(() => {
-            verificarS();
-        }, "3000");
+
+            if (ataqueInimigo == 1) {
+
+                if (efeitoTailWhipInimigo == true) {
+                    var dano = 20;
+                    vidaSquirtle -= dano;
+                    hpSquirtle.style.width = `${vidaSquirtle}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                } else {
+                    var dano = 15;
+                    vidaSquirtle -= dano;
+                    hpSquirtle.style.width = `${vidaSquirtle}px`;
+                    mensagem = 'Rattata atacou usando Tackle!<br><br>';
+                }
+
+            } else if (ataqueInimigo == 2) {
+
+                if (efeitoTailWhipInimigo == false) {
+                    efeitoTailWhipInimigo = true;
+                    mensagem = `Rattata atacou usando Tail Whip!<br>
+            A defesa de seu pokémon foi reduzida!<br><br>`;
+                } else {
+                    mensagem = `Rattata utilizou novamente Tail Whip!<br>
+            O ataque não surtiu efeito em seu pokémon!<br><br>`;
+                }
+
+            } else if (ataqueInimigo == 3) {
+
+                for (i = 0; i < 5; i++) {
+                    var acertoAtual = parseInt(Math.random() * (1 + 1));
+                    acertosFurySwipes.push(acertoAtual);
+                }
+
+                for (i = 0; i < 5; i++) {
+                    var acertoAtual = acertosFurySwipes[i];
+                    if (acertoAtual == 1) {
+                        numeroAcertos += 1;
+                    }
+                }
+                mensagem = `Rattata atacou usando Fury Swipes!<br>
+        Rattata atingiou ${numeroAcertos} vezes seu pokémon!<br><br>`;
+            }
+
+            div_historico_squirtle.innerHTML += mensagem;
+
+            var dano = (numeroAcertos * 10);
+            vidaSquirtle -= dano;
+            hpSquirtle.style.width = `${vidaSquirtle}px`;
+
+            numeroAcertos = 0;
+            acertosFurySwipes = [];
+
+        }, "2000");
+
+        if (verificadoS == false) {
+            setTimeout(() => {
+                verificarS();
+            }, "3000");
+        }
     }
-}
 
     // Função para verificar a vitória ou derrota do usuário na batalha
 
@@ -845,10 +924,10 @@
         if (vidaBulbasaur <= 0) {
 
             verificadoB = true;
-            alert(`Fim do combate!`);
-            hpBulbasaur.style.display='none';
+            hpBulbasaur.style.display = 'none';
             div_historico_bulbasaur.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
-            containerResultadosB.style.display='flex';
+            containerResultadosB.style.display = 'flex';
+            containerPesquisa.style.display = 'flex';
             boxPontosUsuarioB.innerHTML = '0';
             document.getElementById("tackle_b").disabled = true;
             document.getElementById("growl_b").disabled = true;
@@ -856,24 +935,28 @@
 
             setTimeout(() => {
                 window.location = "#containerResultadosB";
+                cadastrarPontos()
+                obterDadosGrafico()
             }, "2000");
 
         } else if (vidaInimigo_bulbasaur <= 0) {
-            
+
             verificadoB = true;
-            alert(`Fim do combate!`);
-            hpInimigoBulbasaur.style.display='none';
+            hpInimigoBulbasaur.style.display = 'none';
             pontosUsuario = vidaBulbasaur * 5;
             div_historico_bulbasaur.innerHTML = 'Bulbasaur venceu a batalha!<br>Parabéns pela vitória!'
-            containerResultadosB.style.display='flex';
+            containerResultadosB.style.display = 'flex';
+            containerPesquisa.style.display = 'flex';
             boxPontosUsuarioB.innerHTML = `${pontosUsuario}`;
 
             document.getElementById("tackle_b").disabled = true;
             document.getElementById("growl_b").disabled = true;
             document.getElementById("absorb_b").disabled = true;
-            
+
             setTimeout(() => {
                 window.location = "#containerResultadosB";
+                cadastrarPontos()
+                obterDadosGrafico()
             }, "2000");
         }
     }
@@ -883,35 +966,40 @@
         if (vidaCharmander <= 0) {
 
             verificadoC = true;
-            alert(`Fim do combate!`);
-            hpCharmander.style.display='none';
+            hpCharmander.style.display = 'none';
             div_historico_charmander.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
-            containerResultadosC.style.display='flex';
+            containerResultadosC.style.display = 'flex';
+            containerPesquisa.style.display = 'flex';
             boxPontosUsuarioC.innerHTML = '0';
-            document.getElementById("scratch_c").disabled = true;
-            document.getElementById("growl_c").disabled = true;
-            document.getElementById("ember_c").disabled = true;
+
+            // document.getElementById("scratch_c").disabled = true;
+            // document.getElementById("growl_c").disabled = true;
+            // document.getElementById("ember_c").disabled = true;
 
             setTimeout(() => {
                 window.location = "#containerResultadosC";
+                cadastrarPontos()
+                obterDadosGrafico()
             }, "2000");
 
         } else if (vidaInimigo_charmander <= 0) {
 
             verificadoC = true;
-            alert(`Fim do combate!`);
-            hpInimigoCharmander.style.display='none';
+            hpInimigoCharmander.style.display = 'none';
             pontosUsuario = vidaCharmander * 5;
             div_historico_charmander.innerHTML = 'Charmander venceu a batalha!<br>Parabéns pela vitória!'
-            containerResultadosC.style.display='flex';
+            containerResultadosC.style.display = 'flex';
+            containerPesquisa.style.display = 'flex';
             boxPontosUsuarioC.innerHTML = `${pontosUsuario}`;
 
-            document.getElementById("scratch_c").disabled = true;
-            document.getElementById("growl_c").disabled = true;
-            document.getElementById("ember_c").disabled = true;
+            // document.getElementById("scratch_c").disabled = true;
+            // document.getElementById("growl_c").disabled = true;
+            // document.getElementById("ember_c").disabled = true;
 
             setTimeout(() => {
                 window.location = "#containerResultadosC";
+                cadastrarPontos()
+                obterDadosGrafico()
             }, "2000");
 
         }
@@ -922,35 +1010,40 @@
         if (vidaSquirtle <= 0) {
 
             verificadoS = true;
-            alert(`Fim do combate!`);
-            hpSquirtle.style.display='none';
+            hpSquirtle.style.display = 'none';
             div_historico_squirtle.innerHTML = 'Rattata venceu a batalha!<br>Talvez você tenha que treinar um pouco mais'
-            containerResultadosS.style.display='flex';
+            containerResultadosS.style.display = 'flex';
+            containerPesquisa.style.display = 'flex';
             boxPontosUsuarioS.innerHTML = '0';
-            document.getElementById("tackle_s").disabled = true;
-            document.getElementById("tailWhip_s").disabled = true;
-            document.getElementById("waterPulse_s").disabled = true;
+
+            // document.getElementById("tackle_s").disabled = true;
+            // document.getElementById("tailWhip_s").disabled = true;
+            // document.getElementById("waterPulse_s").disabled = true;
 
             setTimeout(() => {
                 window.location = "#containerResultadosS";
+                cadastrarPontos()
+                obterDadosGrafico()
             }, "2000");
 
-        }  else if (vidaInimigo_squirtle <= 0) {
+        } else if (vidaInimigo_squirtle <= 0) {
 
             verificadoS = true;
-            alert(`Fim do combate!`);
-            hpInimigoSquirtle.style.display='none';
+            hpInimigoSquirtle.style.display = 'none';
             pontosUsuario = vidaSquirtle * 5;
             div_historico_squirtle.innerHTML = 'Squirtle venceu a batalha!<br>Parabéns pela vitória!'
-            containerResultadosS.style.display='flex';
+            containerResultadosS.style.display = 'flex';
+            containerPesquisa.style.display = 'flex';
             boxPontosUsuarioS.innerHTML = `${pontosUsuario}`;
 
-            document.getElementById("tackle_s").disabled = true;
-            document.getElementById("tailWhip_s").disabled = true;
-            document.getElementById("waterPulse_s").disabled = true;
+            // document.getElementById("tackle_s").disabled = true;
+            // document.getElementById("tailWhip_s").disabled = true;
+            // document.getElementById("waterPulse_s").disabled = true;
 
             setTimeout(() => {
                 window.location = "#containerResultadosS";
+                cadastrarPontos()
+                obterDadosGrafico()
             }, "2000");
 
         }
@@ -960,68 +1053,348 @@
 
     // Dashboard utilizada via Chart.js
 
-    const ctx = document.getElementById('PorcentagemEscolhaB');
+    function obterDadosGrafico(idUsuario) {
 
-    new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-        datasets: [{
-        label: 'Porcentagem de escolha entre jogadores',
-        data: [33, 33, 33],
-        backgroundColor: [
-        '#78C850',
-        '#F08030',
-        '#6890F0'
-        ],
-        borderColor: '#000000',
-    hoverOffset: 4
-    }]
-        },
-    });
+        // alterarTitulo(idAquario)
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/medidas/dadosGrafico/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idUsuario);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta, idUsuario) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+            datasets: [{
+                label: 'Porcentagem de escolha entre jogadores',
+                data: [],
+                backgroundColor: [
+                    '#78C850',
+                    '#F08030',
+                    '#6890F0'
+                ],
+                borderColor: '#000000',
+                hoverOffset: 4
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.Bulbasaur);
+            dados.datasets[1].data.push(registro.Charmander);
+            dados.datasets[2].data.push(registro.Squirtle);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`PorcentagemEscolhaB`),
+            config
+        );
+
+        // setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+    }
+
+
+    // const ctx = document.getElementById('PorcentagemEscolhaB');
+
+    // new Chart(ctx, {
+    //     type: 'pie',
+    //     data: {
+    //         labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+    //         datasets: [{
+    //             label: 'Porcentagem de escolha entre jogadores',
+    //             data: [33, 33, 33],
+    //             backgroundColor: [
+    //                 '#78C850',
+    //                 '#F08030',
+    //                 '#6890F0'
+    //             ],
+    //             borderColor: '#000000',
+    //             hoverOffset: 4
+    //         }]
+    //     },
+    // });
 
     const ctx2 = document.getElementById('PorcentagemEscolhaC');
 
     new Chart(ctx2, {
-      type: 'pie',
-      data: {
-        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-        datasets: [{
-        label: 'Porcentagem de escolha entre jogadores',
-        data: [33, 33, 33],
-        backgroundColor: [
-        '#78C850',
-        '#F08030',
-        '#6890F0'
-        ],
-        borderColor: '#000000',
-    hoverOffset: 4
-    }]
+        type: 'pie',
+        data: {
+            labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+            datasets: [{
+                label: 'Porcentagem de escolha entre jogadores',
+                data: [33, 33, 33],
+                backgroundColor: [
+                    '#78C850',
+                    '#F08030',
+                    '#6890F0'
+                ],
+                borderColor: '#000000',
+                hoverOffset: 4
+            }]
         },
     });
 
     const ctx3 = document.getElementById('PorcentagemEscolhaS');
 
     new Chart(ctx3, {
-      type: 'pie',
-      data: {
-        labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
-        datasets: [{
-        label: 'Porcentagem de escolha entre jogadores',
-        data: [33, 33, 33],
-        backgroundColor: [
-        '#78C850',
-        '#F08030',
-        '#6890F0'
-        ],
-        borderColor: '#000000',
-    hoverOffset: 4
-    }]
+        type: 'pie',
+        data: {
+            labels: ['Bulbasaur', 'Charmander', 'Squirtle'],
+            datasets: [{
+                label: 'Porcentagem de escolha entre jogadores',
+                data: [33, 33, 33],
+                backgroundColor: [
+                    '#78C850',
+                    '#F08030',
+                    '#6890F0'
+                ],
+                borderColor: '#000000',
+                hoverOffset: 4
+            }]
         },
     });
 
-    // Exibição de pontos do usuário, média da pontuação entre jogadores e resultado
+    // Cadastro de pontos do usuário, exibição da média da pontuação entre jogadores e resultado
 
-    
+    function cadastrarPontos() {
+
+        fetch("/usuarios/cadastrarPontos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                pontuacaoServer: pontosUsuario,
+                idUsuarioServer: idUsuario
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    obterMediaPontos();
+
+                } else {
+                    throw "Houve um erro ao tentar realizar a pesquisa!";
+                }
+            })
+            .catch(function (resposta) {
+                // console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+    }
+
+    function obterMediaPontos() {
+
+        // alterarTitulo(idAquario)
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/medidas/ultimas/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarMedia(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção da média de pontos ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarMedia(resposta) {
+
+        console.log('iniciando plotagem da média...');
+
+        // // Criando estrutura para plotar gráfico - labels
+        let pontuacaoMedia = [];
+
+        // // Criando estrutura para plotar gráfico - dados
+        // let dados = {
+        //     labels: labels,
+        //     datasets: [{
+        //         label: 'Umidade',
+        //         data: [],
+        //         fill: false,
+        //         borderColor: 'rgb(75, 192, 192)',
+        //         tension: 0.1
+        //     },
+        //     {
+        //         label: 'Temperatura',
+        //         data: [],
+        //         fill: false,
+        //         borderColor: 'rgb(199, 52, 52)',
+        //         tension: 0.1
+        //     }]
+        // };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterMediaPontos" e passados para "plotarMedia":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            pontuacaoMedia.push(registro);
+
+            // dados.datasets[0].data.push(registro.umidade);
+            // dados.datasets[1].data.push(registro.temperatura);
+        }
+        boxMediaPontosB.innerHTML += `${pontuacaoMedia.value}`;
+        boxMediaPontosC.innerHTML += `${pontuacaoMedia.value}`;
+        boxMediaPontosS.innerHTML += `${pontuacaoMedia.value}`;
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(pontuacaoMedia)
+        console.log('Dados:')
+        console.log(pontuacaoMedia.datasets)
+        console.log('----------------------------------------------')
+
+        // // Criando estrutura para plotar gráfico - config
+        // const config = {
+        //     type: 'line',
+        //     data: dados,
+        // };
+
+        // // Adicionando gráfico criado em div na tela
+        // let myChart = new Chart(
+        //     document.getElementById(`myChartCanvas${idAquario}`),
+        //     config
+        // );
+
+        // setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+
+        if (pontosUsuario > pontuacaoMedia) {
+            boxRespostaB.innerHTML = `<span style='color: green;'>Sua pontuação está acima da média!<br> Parabéns!</span>`
+            boxRespostaC.innerHTML = `<span style='color: green;'>Sua pontuação está acima da média!<br> Parabéns!</span>`
+            boxRespostaS.innerHTML = `<span style='color: green;'>Sua pontuação está acima da média!<br> Parabéns!</span>`
+        } else if (pontosUsuario == pontuacaoMedia) {
+            boxRespostaB.innerHTML = `<span style='color: blue;'>Sua pontuação está na média!<br> Parabéns</span>`
+            boxRespostaC.innerHTML = `<span style='color: blue;'>Sua pontuação está na média!<br> Parabéns</span>`
+            boxRespostaS.innerHTML = `<span style='color: blue;'>Sua pontuação está na média!<br> Parabéns</span>`
+        } else {
+            boxRespostaB.innerHTML = `<span style="color: red;">Sua pontuação abaixo da média!<br> Talvez você precise treinar um pouco mais</span>`
+            boxRespostaC.innerHTML = `<span style="color: red;">Sua pontuação abaixo da média!<br> Talvez você precise treinar um pouco mais</span>`
+            boxRespostaS.innerHTML = `<span style="color: red;">Sua pontuação abaixo da média!<br> Talvez você precise treinar um pouco mais</span>`
+        }
+
+    }
+
+    // Processo de envio da pesquisa do usuário
+
+    function enviarPesquisa() {
+
+        var paisVar = pais_input.value;
+        var estadoVar = estado_input.value;
+        var cidadeVar = cidade_input.value;
+        var bairroVar = bairro_input.value;
+        if (
+            paisVar == "" ||
+            estadoVar == "" ||
+            cidadeVar == "" ||
+            bairroVar == ""
+        ) {
+            mensagemAviso_Pesquisa.innerHTML = `*Preencha todos os campos acima para efetuar a pesquisa`
+            return false;
+        }
+
+
+        fetch("/usuarios/enviarPesquisa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                paisServer: paisVar,
+                estadoServer: estadoVar,
+                cidadeServer: cidadeVar,
+                bairroServer: bairroVar,
+                idUsuarioServer: idUsuario,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    setTimeout(() => {
+                        mensagemAviso_Pesquisa.innerHTML = "Pesquisa enviada com sucesso! Obrigado!";
+                    }, "1000");
+
+                } else {
+                    throw "Houve um erro ao tentar realizar a pesquisa!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                mensagemAviso_Pesquisa.innerHTML = "Você já respondeu a está pesquisa"
+            });
+
+        return false;
+    }
 
 </script>

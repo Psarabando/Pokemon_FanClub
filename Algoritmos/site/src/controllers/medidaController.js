@@ -2,13 +2,38 @@ var medidaModel = require("../models/medidaModel");
 
 function buscarUltimasMedidas(req, res) {
 
-    const limite_linhas = 7;
+    // const limite_linhas = 7;
 
-    var idAquario = req.params.idAquario;
+    // var idPontos = req.params.idPontos;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    // console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a média de pontos.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function buscarMedidasEmTempoReal(req, res) {
+
+    // var idAquario = req.params.idAquario;
+    var idUsuario = req.body.idUsuarioServer;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("O idUsuario está undefined!");
+    }
+
+    console.log(`Cadastrando o Bulbasaur na tabela usuário`);
+
+    medidaModel.buscarMedidasEmTempoReal().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -21,14 +46,18 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function buscarDadosGrafico(req, res) {
 
-function buscarMedidasEmTempoReal(req, res) {
+    // var idAquario = req.params.idAquario;
+    // var idUsuario = req.body.idUsuarioServer;
 
-    var idAquario = req.params.idAquario;
+    // if (idUsuario == undefined) {
+    //     res.status(400).send("O idUsuario está undefined!");
+    // }
 
-    console.log(`Recuperando medidas em tempo real`);
+    console.log(`Buscando os dados de porcentagem dos pokémons`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.buscarDadosGrafico().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -43,6 +72,6 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarMedidasEmTempoReal,
+    buscarDadosGrafico
 }

@@ -121,6 +121,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
+                    mensagemErro_Login.innerHTML = `*Email e/ou senha inválidos`
                     // finalizarAguardar(texto);
                 });
             }
